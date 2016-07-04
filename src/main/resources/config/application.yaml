@@ -1,0 +1,35 @@
+#Security 用户名/密码
+security:
+  user:
+    name: admin
+    password: admin
+    role: ADMIN
+
+
+#MySQL 数据库配置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/webcapture?useSSL=false
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    pool-name: SpringBootHikariCP
+    maximum-pool-size: 10
+    minimum-idle: 3
+    max-lifetime: 1800000
+    connection-timeout: 30000
+    idle-timeout: 30000
+    pool-prepared-statements: true
+    max-open-prepared-statements: 250
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+
+#Server 服务端配置
+server:
+  port: 5000
+  session:
+    timeout: 1200

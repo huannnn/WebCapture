@@ -1,0 +1,1565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>
+        保险代理人_保险营销员_保险专家_沃保保险网
+    </title>
+    <meta id="description" name="description" content="沃保保险网会员专区汇集了全国各地优秀的保险代理人、保险营销员。在这里投保人可以找同城保险代理人、保险营销员咨询保险难题，保险专家之间也可以共同探讨保险话题！">
+    <meta id="keywords" name="keywords" content="保险代理人,保险营销员,保险专家,沃保保险网">
+    <link href="/css/Base.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Member/css/index.css">
+    <link href="/Member/css/mecss01.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <script charset="utf-8" src="http://wpa.b.qq.com/cgi/wpa.php" type="text/javascript"></script>
+    <script src="/Member/js/mejQuery.FillOptions.js" type="text/javascript"></script>
+    <script src="/Member/js/xmlHttp.js" type="text/javascript"></script>
+    <script src="/Member/js/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="/Member/js/check.js" type="text/javascript"></script>
+    <script src="/JS/qqHits.js" type="text/javascript"></script>
+    <script src="/JS/QQChat.js" type="text/javascript"></script>
+    <script src="http://p.vobao.com/Scripts/UserBaseClient.js" type="text/javascript"></script>
+</head>
+<body>
+<!--顶部-->
+<link rel="stylesheet" href="/css/vb_top.css" type="text/css">
+<link href="/User/css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+    function myvb_in() {
+        document.getElementById("myvb_01").style.display = "none";
+        document.getElementById("myvb_02").style.display = "block";
+    }
+    function myvb_out() {
+        document.getElementById("myvb_02").style.display = "none";
+        document.getElementById("myvb_01").style.display = "block";
+    }
+    $.ajax({
+        url: "/Handlers/getTop.ashx",
+        type: "POST",
+        cache: false,
+        dataType: "text",
+        data: { url: document.URL,RegFrom:'28' },
+        success: function (str) {
+            var strs = str.split("&&");
+            for (var i = 0; i < strs.length; i++) {
+                $(".vb").html(strs[0].toString());
+                $("#Top_lbtit").html(strs[1].toString());
+                $("#myvb_01").html(strs[2].toString());
+                //$("#myvb_02 li:eq(5)").html("<a href='http://www.vobao.com/logout.aspx?goUrl=" + strs[3].toString() + "'>退出</a>");
+            }
+        }
+    });
+    function hiden() {
+        $(".znq").hide();
+    }
+    function SendEmailForReg(UserEmail, UserID, gourl, isReSend) {
+        $.ajax({
+            url: "/user/Handlers/Reg.ashx",
+            type: "POST",
+            cache: false,
+            async: false,
+            dataType: "text",
+            data: { action: "SendEmailForReg", UserEmail: UserEmail, UserID: UserID, gourl: gourl },
+            success: function (transport) {
+                if (transport == "1") {
+                    if (isReSend == "1") {
+                        alert("已重新发送！");
+                    }
+
+                    //alert("系统已向您的邮箱发送激活邮件！");
+                    $("#showMassge").show();
+                }
+                else {
+                    alert("发送失败,请检查您的邮箱！");
+                }
+            }
+        });
+    }
+    function unshowDiv(obj) {
+        $("#" + obj).hide();
+    }
+    //考试预热图片临时处理
+    $(function() {
+        var url = location.href.split('#')[0];
+        if (url.indexOf("ks.vobao.com") > -1 || url.indexOf("www.vobao.com/user/") > -1) {
+            $(".KSYuRe").show();
+        } else {
+            $(".KSYuRe").hide();
+        }
+        $(".ClostImgByExam").bind("click", function () { $(".KSYuRe").hide(); });
+        $.post("/Handlers/geUserAsk.ashx", function (data) {
+            $(".askmsg").html(data);
+        });
+    });
+</script>
+<div class="KSYuRe" style=" display:none; background:url(/images/wap_ggyr02.jpg) center top no-repeat; height:110px; top:0px;">
+    <div style="width:1080px; height:110px; margin:0 auto;">
+        <a href="http://news.vobao.com/dongtai/810227612207702811.shtml" target="_blank">
+            <div style="float:left; height:110px; width:1057px"></div> </a>
+        <div class="ks_close01" style="float:left; height:23px; width:23px; cursor: pointer;">
+            <img class="ClostImgByExam" src="/images/yrgb1.png" width="23" height="23" alt="">
+        </div>
+    </div>
+</div>
+<div class="top" id="vobao_top">
+    <div id="box">
+        <div style="float: left; width: 100%;" id="float">
+            <div class="top_center">
+                <div class="top_left">
+                    &nbsp;欢迎来到中国领先的第三方保险平台！&nbsp;
+                    <span id="Top_lbtit"><a href="http://reg.vobao.com/Common/Register/">立即注册</a> &nbsp; <a href="http://www.vobao.com/User/login.aspx?goUrl=http://member.vobao.com/">会员登录</a></span>
+                </div>
+                <div class="top_right">
+                    <div class="top_menu" id="myvb_01">
+                        <a href="javascript:void(0)" onclick="window.location.href='http://www.vobao.com/user/login.aspx'">我的沃保</a>
+                    </div>
+                    <div class="top_menu_01" id="myvb_02" onmouseover="myvb_in()" onmouseout="myvb_out()" style="z-index: 10000">
+                        <ul>
+                            <li style="margin-top: 7px; margin-left: 10px; width: 68px;">我的沃保 </li>
+                            <li><a href="http://www.vobao.com/user/main.aspx">会员后台</a></li>
+                            <li> <a href="http://www.vobao.com/user/userQbar/myScore.aspx"> <span class="vb"> <span class="vb"></span> </span>v币</a></li>
+                            <li> <a href="http://www.vobao.com/user/userSite/mypic.aspx"> 我的风采</a></li>
+                        </ul>
+                    </div>
+                    <div class="top_menu_right">
+                        <div class="top_line">
+                        </div>
+                        <div class="top_menu_02">
+                            <a href="http://www.vobao.com/VipServer/" rel="nofollow"> 会员服务</a>
+                        </div>
+                        <div class="top_line">
+                        </div>
+                        <div class="top_menu_02">
+                            <a href="http://www.vobao.com/About/">关于沃保</a>
+                        </div>
+                        <div class="top_line">
+                        </div>
+                        <div class="top_menu_02">
+                            <a href="http://pay.vobao.com/" rel="nofollow">支付中心</a>
+                        </div>
+                        <div class="top_line">
+                        </div>
+                        <div class="top_menu_02">
+                            <a href="http://www.vobao.com/Help/" rel="nofollow">帮助中心</a>
+                        </div>
+                        <div class="top_line">
+                        </div>
+                        <div class="top_menu_03">
+                            <a href="http://www.vobao.com/">沃保首页</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="askmsg"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clr">
+</div>
+<div class="mainpop_con" id="showMassge" style="display: none;z-index: 999;">
+    <div class="mainpop_top">
+        <div class="mainpop_left" style="text-align: left;">
+            验证邮箱
+        </div>
+        <div class="mainpop_right">
+            <a href="javascript:void(0);" onclick="unshowDiv('showMassge')"> <img src="/Images/closer.gif"></a>
+        </div>
+    </div>
+    <div>
+        <div class="mainpop_three">
+            <table cellpadding="0" cellspacing="0" id="MassgeContent">
+                <tbody>
+                <tr>
+                    <td style="border-top: none; border-right: none; height: 45px;"> &nbsp; </td>
+                </tr>
+                <tr>
+                    <td style="border-top: none; border-right: none; line-height: 42px; color: #92969F;
+                        font-weight: 600;"> 系统已向您的邮箱<span style="color: #DA7656; margin: 0px 5px 0px 5px;"></span>发送验证邮箱，请注意查收！ </td>
+                </tr>
+                <tr>
+                    <td style="border-top: none; border-right: none; line-height: 42px; color: #656565;
+                        margin-bottom: 20px;"> 验证邮件24小时内有效,请<a style="color: Blue; text-decoration: underline;" href="http://www.hao123.com/mail" target="_blank">点击这里</a>前往邮箱查收。 </td>
+                </tr>
+                <tr>
+                    <td style="border-top: none; border-right: none; line-height: 20px; height: 20px;
+                        padding-top: 20px;">
+                        <div style="text-align: center; color: #CACACA;">
+                            <a style="color: #CACACA; text-decoration: underline;" href="javascript:void(0);" onclick="SendEmailForReg('','','http://www.vobao.com/user/main.aspx','1');"> 重新发送</a>
+                        </div> </td>
+                </tr>
+                <tr>
+                    <td style="border-top: none; border-right: none; line-height: 15px;"> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    (function () {
+        var oDiv = document.getElementById("float");
+
+        var iE6 = window.ActiveXObject && !window.XMLHttpRequest; //判断是否是IE6
+        var H = 0;
+        var Y = oDiv;
+        while (Y) {
+            H += Y.offsetTop;
+            Y = Y.offsetParent
+        };
+        //window.onscroll 事件用于捕捉页面垂直和水平的滚动
+        window.onscroll = function () {
+            var s = document.body.scrollTop || document.documentElement.scrollTop;
+
+            if (s > H) {
+                oDiv.className = "div1 div2";
+                if (iE6) { oDiv.style.top = (s - H) + "px"; }
+            }
+            else {
+                oDiv.className = "div1";
+            }
+        };
+    })();
+</script>
+<link href="/css/top.css" rel="stylesheet" type="text/css">
+<div class="topmenu">
+    <div class="top_ad">
+        <div class="top_ad1 clear">
+            <div class="img_voabo">
+                <a href="http://www.vobao.com/"> <img src="/images/vobao.jpg"></a>
+            </div>
+            <div class="img_ad_01">
+                <a target="_blank" href="http://toubao.vobao.com/?FromTp=18&amp;MonTp=10056&amp;RegFrom=12002"><img src="http://www.vobao.com/Images/xqcs_05.jpg"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clr"></div>
+<div class="top_colun" style="background: #FFFFFF;">
+    <div class="top_colun1 clear">
+        <div class="colun">
+            <div class="colun_index">
+                <a style="font-size:14px;" href="http://www.vobao.com/">首页</a>
+            </div>
+            <div class="colun_line">
+            </div>
+            <div class="colun_mbx">
+                买保险
+            </div>
+            <div class="mbx_menu">
+                <span class="mbx_menu_01"><a href="http://member.vobao.com" class="mbx_menu_b">找代理人</a></span>
+                <span class="mbx_menu_02"><a href="http://p.vobao.com/" class="mbx_menu_a">找险种</a></span>
+                <span class="mbx_menu_03"><a href="http://toubao.vobao.com" class="mbx_menu_a">需求测试</a></span>
+                <span class="mbx_menu_04"><a href="http://ask.vobao.com/" class="mbx_menu_a">保险问吧</a></span>
+                <span class="mbx_menu_05"><a href="http://baoxian.vobao.com" class="mbx_menu_a">找机构</a></span>
+                <span class="mbx_menu_06"><a href="http://news.vobao.com/zhinan/" class="mbx_menu_a">投保指南</a></span>
+            </div>
+            <div class="colun_line">
+            </div>
+            <div class="colun_mbx">
+                卖保险
+            </div>
+            <div class="mbx_menu" style="width: 223px;">
+                <span class="mbx_menu_01" style="width: 79px;"><a href="http://ks.vobao.com" class="mbx_menu_a">资格考试</a></span>
+                <span class="mbx_menu_02" style="width: 78px;"><a href="http://download.vobao.com" class="mbx_menu_a">培训资料</a></span>
+                <span class="mbx_menu_03" style="width: 66px;"><a href="http://www.vobao.com/zt/rwzf.aspx" class="mbx_menu_a">人物专访</a></span>
+                <span class="mbx_menu_04" style="width: 79px;"><a href="http://share.vobao.com/" class="mbx_menu_a">沃分享</a></span>
+                <span class="mbx_menu_05" style="width: 78px;"><a href="http://www.vobao.com/VipServer/" class="mbx_menu_a">成为VIP</a></span>
+            </div>
+            <div class="colun_line">
+            </div>
+            <div class="colun_vbzq">
+                沃保专区
+            </div>
+            <div class="mbx_menu" style="width: 156px;">
+                <span class="mbx_menu_01" style="width: 78px;"><a href="http://news.vobao.com" class="mbx_menu_a">保险资讯</a></span>
+                <span class="mbx_menu_02" style="width: 78px;"><a href="http://www.vobao.com/zt/" class="mbx_menu_a">保险专题</a></span>
+                <span class="mbx_menu_05" style="width: 78px;"><a href="http://news.vobao.com/dongtai/" class="mbx_menu_a">沃保动态</a></span>
+                <span class="mbx_menu_06" style="width: 78px;"><a href="http://baike.vobao.com/" class="mbx_menu_a">保险百科</a></span>
+            </div>
+            <div class="colun_line">
+            </div>
+            <div class="colun_xgbx">
+                <a href="http://hk.vobao.com" target="_blank">香港保险</a>
+                <img src="http://pres.vobao.com/Images/base/icon.png">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clr"></div>
+<!--顶部-->
+<div class="me-div">
+    <div class="me-left">
+        <div class="me-search">
+            <!--地区 start-->
+            <div class="me-area">
+                <div class="me-area1">
+                    地区
+                </div>
+                <div class="me-area2">
+                    <div class="me-area21">
+                        <a class="me-area211" href="http://member.vobao.com/" style="color: #FFFFFF;"> 全国</a>
+                        <a href="http://member.vobao.com/Beijing/" class="me-area212">北京</a>
+                        <a href="http://member.vobao.com/Tianjin/" class="me-area212">天津</a>
+                        <a href="http://member.vobao.com/Hebei/" class="me-area212">河北</a>
+                        <a href="http://member.vobao.com/ShanXi/" class="me-area212">山西</a>
+                        <a href="http://member.vobao.com/NeiMongol/" class="me-area212">内蒙古</a>
+                        <a href="http://member.vobao.com/Liaoning/" class="me-area212">辽宁</a>
+                        <a href="http://member.vobao.com/Jilin/" class="me-area212">吉林</a>
+                        <a href="http://member.vobao.com/Heilongjiang/" class="me-area212">黑龙江</a>
+                        <a href="http://member.vobao.com/Shanghai/" class="me-area212">上海</a>
+                        <a href="http://member.vobao.com/Jiangsu/" class="me-area212">江苏</a>
+                        <a href="http://member.vobao.com/Zhejiang/" class="me-area212">浙江</a>
+                        <a href="http://member.vobao.com/Anhui/" class="me-area212">安徽</a>
+                        <a href="http://member.vobao.com/Fujian/" class="me-area212">福建</a>
+                        <a href="http://member.vobao.com/Jiangxi/" class="me-area212">江西</a>
+                        <a href="http://member.vobao.com/Shandong/" class="me-area212">山东</a>
+                        <a href="http://member.vobao.com/HeNan/" class="me-area212">河南</a>
+                        <a href="http://member.vobao.com/Hubei/" class="me-area212">湖北</a>
+                        <a href="http://member.vobao.com/HuNan/" class="me-area212">湖南</a>
+                        <a href="http://member.vobao.com/Guangdong/" class="me-area212">广东</a>
+                        <a href="http://member.vobao.com/Guangxi/" class="me-area212">广西</a>
+                        <a href="http://member.vobao.com/Hainan/" class="me-area212">海南</a>
+                        <a href="http://member.vobao.com/Chongqing/" class="me-area212">重庆</a>
+                        <a href="http://member.vobao.com/SiChuan/" class="me-area213">四川</a>
+                        <a href="http://member.vobao.com/GuiZhou/" class="me-area212">贵州</a>
+                        <a href="http://member.vobao.com/YunNan/" class="me-area212">云南</a>
+                        <a href="http://member.vobao.com/Xizang/" class="me-area213">西藏</a>
+                        <a href="http://member.vobao.com/Shaanxi/" class="me-area212">陕西</a>
+                        <a href="http://member.vobao.com/Gansu/" class="me-area212">甘肃</a>
+                        <a href="http://member.vobao.com/Qinghai/" class="me-area212">青海</a>
+                        <a href="http://member.vobao.com/Ningxia/" class="me-area212">宁夏</a>
+                        <a href="http://member.vobao.com/Xinjiang/" class="me-area212">新疆</a>
+                        <a href="http://member.vobao.com/Taiwan/" class="me-area212">台湾</a>
+                        <a href="http://member.vobao.com/Hongkong/" class="me-area212">香港</a>
+                        <a href="http://member.vobao.com/aomen/" class="me-area212">澳门</a>
+                    </div>
+                    <div class="me-area22">
+                        <span>热门：</span>
+                        <a href="http://member.vobao.com/beijing/">北京</a>
+                        <a href="http://member.vobao.com/Guangdong/Guangzhou/">广州</a>
+                        <a href="http://member.vobao.com/shanghai/">上海</a>
+                        <a href="http://member.vobao.com/sichuan/chengdu/"> 成都</a>
+                        <a href="http://member.vobao.com/Guangdong/shenzhen/">深圳</a>
+                        <a href="http://member.vobao.com/zhejiang/hangzhou/">杭州</a>
+                        <a href="http://member.vobao.com/hubei/wuhan/">武汉</a>
+                        <a href="http://member.vobao.com/chongqing/"> 重庆</a>
+                        <a href="http://member.vobao.com/tianjin/">天津</a>
+                        <a href="http://member.vobao.com/jiangsu/nanjing/">南京</a>
+                        <a href="http://member.vobao.com/fujian/xiamen/">厦门</a>
+                        <a href="http://member.vobao.com/hunan/changsha/"> 长沙</a>
+                        <a href="http://member.vobao.com/liaoning/dalian/">大连</a>
+                    </div>
+                </div>
+            </div>
+            <!--地区 end-->
+            <!--机构 start-->
+            <div class="me-mechanism">
+                <div class="me-area1">
+                    机构
+                </div>
+                <div class="me-mechanism2">
+                    <div class="me-mechanism21">
+                        <div style="width: 30px; height: 12px; float: left;">
+                            <a href="http://member.vobao.com/" style="color: #FFFFFF; background: #FF6C0A;">不限</a>
+                        </div>
+                        <a href="http://member.vobao.com/renshou/" title="人寿保险">人寿保险</a>
+                        <a href="http://member.vobao.com/caichan/" title="财产保险">财产保险</a>
+                        <a href="http://member.vobao.com/jituan/" title="保险集团控股">保险集团控股</a>
+                        <a href="http://member.vobao.com/daili/" title="保险代理公司">保险代理公司</a>
+                        <a href="http://member.vobao.com/jingji/" title="保险经纪公司">保险经纪公司</a>
+                        <a href="http://member.vobao.com/gonggu/" title="保险公估公司">保险公估公司</a>
+                        <a href="http://member.vobao.com/jianye/" title="保险兼业代理机构">保险兼业代理机构</a>
+                        <span class="me-mechanism222" id="moreSpan"><a onclick="morejg('more');" href="javascript:void(0);">更多↓</a></span>
+                    </div>
+                    <div class="me-mechanism21" style="display:none" id="morejg">
+                        <a href="http://member.vobao.com/zaibaoxian/" title="再保险">再保险</a>
+                        <a href="http://member.vobao.com/waizi/" title="外资保险代表处">外资保险代表处</a>
+                        <a href="http://member.vobao.com/zichan/" title="保险资产管理">保险资产管理</a>
+                        <span class="me-mechanism222" id="lessSpan"><a onclick="morejg('less');" href="javascript:void(0);"> 收起↑</a></span>
+                    </div>
+                    <script type="text/javascript">
+                        //                            morejg('more')
+                        //                            var aa = "33";
+                        //                            aa.lastIndexOf("_")
+                    </script>
+                    <div class="me-mechanism22">
+                        <div class="me-mechanism221" id="gj_top13">
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/pinganbaoxian/" title="中国平安人寿保险股份有限公司">平安保险</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/pinganchanxian/" title="中国平安财产保险股份有限公司">平安产险</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/zhongguorenshou/" title="中国人寿保险股份有限公司">中国人寿</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/guoshoucaixian/" title="中国人寿财产保险股份有限公司">国寿财险</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/taipingyangbaoxian/" title="中国太平洋人寿保险股份有限公司">太平洋保险</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/taipingyangcaixian/" title="中国太平洋财产保险股份有限公司">太平洋财险</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/xinhuabaoxian/" title="新华人寿保险股份有限公司">新华保险</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/taipingcaixian/" title="太平财产保险有限公司">太平财险</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/taikangrenshou/" title="泰康人寿保险股份有限公司">泰康人寿</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/renbaocaixian/" title="中国人民财产保险股份有限公司">人保财险</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/taipingrenshou/" title="太平人寿保险有限公司">太平人寿</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/zhonghualianhe/" title="中华联合财产保险股份有限公司">中华联合产险</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/dadibaoxian/" title="中国大地财产保险股份有限公司">大地保险</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/zhongguorenbao/" title="中国人民人寿保险股份有限公司">中国人保</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <a href="http://member.vobao.com/youbangbaoxian/" title="友邦保险控股有限公司">友邦保险</a>
+                            </div>
+                            <div class="me-mechanismleft">
+                                <span class="me-mechanism222" id="commore"><a onclick="morecom('firstmore','638529310960');" href="javascript:void(0);">更多↓</a></span>
+                            </div>
+                        </div>
+                        <div class="me-mechanism228" id="commoreshow" style="display: none">
+                        </div>
+                        <!--热门公司，2014-9-15，不显示
+                                            <div class="me-mechanism223" id="mechanism223" style="display: none">
+                                                <ul>
+
+                                                    <li>
+                                                        <div class="me-mechanism223left">
+                                                            热门寿险公司：</div>
+                                                        <div class="me-mechanism223left"><a href="http://member.vobao.com/pinganbaoxian/" title="中国平安人寿保险股份有限公司">平安保险</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/zhongguorenshou/" title="中国人寿保险股份有限公司">中国人寿</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/taipingyangbaoxian/" title="中国太平洋人寿保险股份有限公司">太平洋保险</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/xinhuabaoxian/" title="新华人寿保险股份有限公司">新华保险</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/taikangrenshou/" title="泰康人寿保险股份有限公司">泰康人寿</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/taipingrenshou/" title="太平人寿保险有限公司">太平人寿</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/zhongguorenbao/" title="中国人民人寿保险股份有限公司">中国人保</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/youbangbaoxian/" title="友邦保险控股有限公司">友邦保险</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/zhongyingrenshou/" title="中英人寿保险有限公司">中英人寿</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/zhongyirenshou/" title="中意人寿保险有限公司">中意人寿</a></div>
+                                                    </li>
+
+                                                    <li>
+                                                        <div class="me-mechanism223left">
+                                                            热门财险公司：</div>
+                                                        <div class="me-mechanism223left"><a href="http://member.vobao.com/pinganchanxian/" title="中国平安财产保险股份有限公司">平安产险</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/guoshoucaixian/" title="中国人寿财产保险股份有限公司">国寿财险</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/taipingyangcaixian/" title="中国太平洋财产保险股份有限公司">太平洋财险</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/taipingcaixian/" title="太平财产保险有限公司">太平财险</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/renbaocaixian/" title="中国人民财产保险股份有限公司">人保财险</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/zhonghualianhe/" title="中华联合财产保险股份有限公司">中华联合产险</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/dadibaoxian/" title="中国大地财产保险股份有限公司">大地保险</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/yangguangcaixian/" title="阳光财产保险股份有限公司">阳光财险</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/zhongguoxinbao/" title="中国出口信用保险公司">中国信保</a></div><div class="me-mechanism223left"><a href="http://member.vobao.com/tianancaixian/" title="天安财产保险股份有限公司">天安产险</a></div>
+                                                    </li>
+
+                                                    <li>
+                                                        <div class="me-mechanism223left">
+                                                            热门中介公司：</div>
+                                                        <div class="me-mechanism223left"> <a href="http://member.vobao.com/huakang/" title="华康保险代理有限公司">华康保险</a></div><div class="me-mechanism223left"> <a href="http://member.vobao.com/fanhuajinrong/" title="泛华金融服务集团">泛华保险</a></div><div class="me-mechanism223left"> <a href="http://member.vobao.com/shengandaili/" title="河北盛安保险代理有限公司">盛安保险代理</a></div><div class="me-mechanism223left"> <a href="http://member.vobao.com/yimin/" title="西安以民保险代理有限公司">以民保险</a></div><div class="me-mechanism223left"> <a href="http://member.vobao.com/hongda/" title="吉林省宏大保险代理有限责任公司">宏大保险</a></div><div class="me-mechanism223left"> <a href="http://member.vobao.com/taihe/" title="泰合保险销售有限公司">泰合保险</a></div><div class="me-mechanism223left"> <a href="http://member.vobao.com/youzheng/" title="湖南邮政保险代理有限公司">邮政保险</a></div><div class="me-mechanism223left"> <a href="http://member.vobao.com/datong/" title="大童保险销售服务有限公司">大童保险销售</a></div><div class="me-mechanism223left"> <a href="http://member.vobao.com/derui/" title="德锐投资咨询有限公司">德锐投资咨询有限公司</a></div><div class="me-mechanism223left"> <a href="http://member.vobao.com/bishengbaoxian/" title="康宏碧升保险代理有限公司">康宏碧升</a></div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                -->
+                    </div>
+                </div>
+            </div>
+            <!--机构 end-->
+        </div>
+        <!--竞拍 start-->
+        <div class="me-elite" id="getvip">
+            <iframe frameborder="0" width="728px" height="210px" src="/member/TjVip.aspx?areaid3=0"> </iframe>
+        </div>
+        <!--竞拍 end-->
+        <!--会员类别 start-->
+        <div class="me-msearch">
+            <ul id="tags">
+                <li class="selectTag"><a class="xztop1" href="http://member.vobao.com/"> 全部会员</a> </li>
+                <li><a class="xztop1" href="http://member.vobao.com/jinpai_0_0/"> 金牌会员</a> </li>
+                <li><a class="xztop1" href="http://member.vobao.com/huangguan_0_0/"> 地区皇冠</a> </li>
+                <li><a class="xztop1" href="http://member.vobao.com/chengxinbao_0_0/"> 诚信保</a> </li>
+                <li><a class="xztop1" href="http://member.vobao.com/chengyibao_0_0/"> 诚益保</a> </li>
+                <li><a class="xztop1" href="http://member.vobao.com/weizhan_0_0/"> 微展通</a> </li>
+            </ul>
+            <div class="new_selet">
+                <div class="lnbox_in">
+                    <input type="text" style="vertical-align: middle; color: #AAAAAA;" onblur="if (value ==''){value='省/市/区/姓名'; this.style.color='#AAAAAA'}else{this.style.color='black';}" onclick="if(this.value=='省/市/区/姓名'){this.value='';}" onkeypress="if (event.keyCode==13){SearchNameOrArea();}" onkeydown="this.style.color='black';" value="省/市/区/姓名" id="keyNameOrArea" class="ln_input">
+                    <div class="wclosed" onclick="window.location.href = &quot;http://member.vobao.com&quot;">
+                        <img src="http://pres.vobao.com/Images/old/v2/Member/images/clo1.png">
+                    </div>
+                </div>
+                <div class="lnbox_se">
+                    <input type="button" id="btnSearchNameOrArea" class="ln_but">
+                </div>
+            </div>
+        </div>
+        <div class="nsort">
+            排序：
+            <span class="color"><a href="http://member.vobao.com/" id="hrefDefault" target="_self">默认</a></span>
+            <span><a href="http://member.vobao.com/0_renzheng_0/" id="hrefOrderrz" target="_self">认证等级从高到低</a></span>
+            <span><a href="http://member.vobao.com/0_nianxian_0/" id="hrefOrdernx" target="_self">从业年限从高到低</a></span>
+            <span><a href="http://member.vobao.com/0_huida_0/" id="hrefOrderhd" target="_self">回答咨询数从多到少</a></span>
+            <span style="border: none"><a href="http://member.vobao.com/0_vipnianxian_0/" id="hrefOrderVip" target="_self">VIP年限从高到低</a></span>
+        </div>
+        <!--会员类别 end-->
+        <!--排序 start  -->
+        <div class="me-condition1" style="display: none;">
+            <span class="me-condition11">排序：</span>
+            <span class="me-condition11"><a href="http://member.vobao.com/?&amp;lv=0&amp;keyword="> <img src="http://pres.vobao.com/Images/old/v2/Member/images/default2.gif" width="42" height="23"> </a></span>
+            <span class="me-condition11"> <a href="http://member.vobao.com/?&amp;lv=0&amp;keyword=&amp;orderrz=desc"> <img src="http://pres.vobao.com/Images/old/v2/Member/images/rzdj-class01.gif" width="66" height="23"></a> </span>
+            <span class="me-condition11"> <a href="http://member.vobao.com/?&amp;lv=0&amp;keyword=&amp;ordernx=asc"> <img src="http://pres.vobao.com/Images/old/v2/Member/images/cynx-life01.gif" width="66" height="23"></a> </span>
+            <span class="me-condition11"> <a href="http://member.vobao.com/?&amp;lv=0&amp;keyword=&amp;orderhd=desc"> <img src="http://pres.vobao.com/Images/old/v2/Member/images/hdzxs-cons1.gif" width="75" height="23"></a> </span>
+            <!--隐藏域 start-->
+            <div class="selSearch" style="display: none;">
+                <div class="nowSearch" id="headSlected1" onclick="if(document.getElementById('headSel1').style.display=='none'){document.getElementById('headSel1').style.display='block';}else {document.getElementById('headSel1').style.display='none';};return false;" onmouseout="drop_mouseout('head',1);">
+                    按擅长领域搜索
+                </div>
+                <div class="btnSel">
+                    <a href="#" onclick="if(document.getElementById('headSel1').style.display=='none'){document.getElementById('headSel1').style.display='block';}else {document.getElementById('headSel1').style.display='none';};return false;" onmouseout="drop_mouseout('head',1);"></a>
+                </div>
+                <div class="nowSearch1">
+                    <ul class="selOption" id="headSel1" style="display: none;">
+                        <li><a href="#" onclick="return search_show('head','696698386479',this,1)" onmouseover="drop_mouseover('head');" onmouseout="drop_mouseout('head',1);">R 人寿保险</a></li>
+                        <li><a href="#" onclick="return search_show('head','696698386480',this,1)" onmouseover="drop_mouseover('head');" onmouseout="drop_mouseout('head',1);">C 财产保险</a></li>
+                        <li><a href="#" onclick="return search_show('head','696698386480',this,1)" onmouseover="drop_mouseover('head');" onmouseout="drop_mouseout('head',1);">S 少儿保险</a></li>
+                        <li><a href="#" onclick="return search_show('head','696698386480',this,1)" onmouseover="drop_mouseover('head');" onmouseout="drop_mouseout('head',1);">Y 养老保险</a></li>
+                        <li><a href="#" onclick="return search_show('head','696698386480',this,1)" onmouseover="drop_mouseover('head');" onmouseout="drop_mouseout('head',1);">C 汽车保险</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--隐藏域 end-->
+        </div>
+        <!--排序 end-->
+        <!--会员列表 start-->
+        <div id="tagContent">
+            <div id="tagContent1" class="tagContent selectTag">
+                <ul>
+                    <li class="me-hyxx2">
+                        <div class="me-hyxx21">
+                            <div class="me-hyxx111">
+                                <div class="me-hyxx1111">
+                                    <span class="me-hyxx1112"><span class="me-hyxx221"> </span><span class="me-hyxx11111"> <a href="http://www.vobao.com/userinfo/853149241492956103/" target="_blank" title="湖北武汉太平人寿代理人王建华的个人名片"><img src="http://res.vobao.com/res1/201606/2014/20160620143333222王建华.jpg" width="80" height="92" title="湖北武汉太平人寿代理人王建华的个人名片" alt="湖北武汉太平人寿代理人王建华的个人名片"> </a></span> <span class="me-hyxx1123"> <a href="http://www.lcxpm.cn" target="_blank" title="太平人寿王建华保险咨询网"> <img src="images/grwz-tb01.jpg" width="79" height="21" title="湖北武汉太平人寿王建华保险咨询网"> </a></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+           <span class="me-hyxx11112">
+            <ul>
+                <li class="me-hyxm01"><span style="float: left; display: block; width: 48px; overflow: hidden;"> <a href="http://www.lcxpm.cn" target="_blank" title="湖北武汉太平人寿代理人王建华">王建华</a> </span><span style="float: left; padding-top: 5px; padding-left: 5px;"> <a id="qqChatU_0" href="javascript:void(0)" onclick="qqhits('297948810','853149241492956103','0')"><img src="http://pres.vobao.com/Images/old/v2/Member/images/qqjt-hy15.gif" width="60" height="16"></a> </span><span class="me-hyxx1121"> <img src="images/phone-12.gif">18971360332 </span><span class="me-hyxx11121"> <a rel="nofollow" href="http://r.vobao.com/853149241492956103.shtml" title="总共提供五件有效从业证明文件、一件执业证等有效执业证明文件，并且通过验证。" target="_blank"> <img src="http://res.vobao.com/res1/201309/0315/lv08_763657577669005.png"> </a></span></li>
+                <li><a href="http://member.vobao.com/taipingrenshou/" class="Para" title="太平人寿代理人大全" target="_blank"> 太平人寿</a> <a href="http://member.vobao.com/Hubei/Wuhan/taipingrenshou/" target="_blank" title="湖北武汉太平人寿代理人大全"> 太平人寿保险有限公司湖北分公司</a> </li>
+                <li> <a href="http://member.vobao.com/Hubei/Wuhan/" class="Para" title="湖北武汉代理人大全" target="_blank">湖北武汉</a>&nbsp;<a href="http://member.vobao.com/Hubei/Wuhan/" class="Para" title="湖北武汉代理人大全" target="_blank"></a>&nbsp; </li>
+                <li>从业时间：2003-10-25(<span nianxiancontainer="853149241492956103"></span>年)</li>
+                <li>回答咨询数：<a href="http://www.vobao.com/UserInfo/gbook/Index.aspx?UserID=853149241492956103&amp;SiteID=853517781538392141" target="_blank" title="湖北武汉太平人寿代理人王建华回答了3个网友的提问">3</a></li>
+                <li> <span title="真诚所至，金石为开。诚实守信，一诺千金，保险能不能赔，从买保险的第一天就知道。赔多少，当事情发生时才知道。">个性签名：<a>真诚所至，金石为开。诚实守信，一诺千金，保险能不能赔，从买保险...</a></span> </li>
+            </ul> </span>
+           <span class="me-hyxx11113">
+            <ul>
+                <li> <a rel="nofollow" href="http://www.vobao.com/VipServer/?action1=0" target="_blank" style="text-decoration: none"><img src="http://pres.vobao.com/Images/old/v2/Member/images/jphy1.gif" title="沃保网金牌"><br><img src="images/jphy2.gif" alt="金牌"></a> </li>
+                <li> </li>
+                <li> <a href="http://www.vobao.com/cstar/detail.aspx?id=854207874501601760" title="沃保保险网城市明星" target="_blank"><img alt="沃保保险网城市明星" title="沃保保险网城市明星" src="images/vn_star.jpg"></a> </li>
+            </ul> </span>
+                                </div>
+                            </div>
+                            <div class="me-hyxx112">
+                                <span class="n_wei"><span class="n_wei_l">微信：</span><span class="n_wei_r"><img src="images/n_wei.jpg"><span class="n_weichild" style="display: none;"><img width="150px" hight="150px" src="http://res.vobao.com/res1/201606/2110/20160621103001714王建华二维码.jpg"></span> </span> </span>
+                                <span class="me-hyxx1122"> <img src="images/wbgz-02.jpg" width="62" height="22"> </span>
+          <span class="me-hyxx1124">&nbsp;<a href="http://lcxpm.vobao.mobi" target="_blank"><img src="images/sjzd-tb02.jpg" width="79" height="21" title="湖北武汉太平人寿王建华手机网站"></a><span class="n_wei_rNew">&nbsp;<img src="http://pres.vobao.com/Images/old/v2/Member/images/sjzd-tb04.jpg" width="79" height="21" title="手机网站"></span><span class="n_weichildNew" style="display: none;"> <img src="http://www.vobao.com/Handlers/KfbQRCode.ashx?url=http://v.vobao.com/u/853149241492956103" width="152px;" heigth="152px">
+            <div class="n_weichildNewSpan">
+                微信扫一扫
+            </div>
+            <div class="n_weichildNewSpan2">
+                查看TA的微信
+            </div> </span></span>
+                            </div>
+                            <div class="me-hyxx12">
+                                <span class="me-hyxx122">擅长领域： <a href="http://xz.vobao.com/shouxian/lvyoubaoxian/" target="_blank">旅游保险</a>&nbsp;<a href="http://xz.vobao.com/shouxian/renshenyiwai/" target="_blank">人身意外</a>&nbsp;<a href="http://xz.vobao.com/shouxian/yiliaojibing/" target="_blank">医疗疾病</a>&nbsp;<a href="http://xz.vobao.com/shouxian/chuantongshouxian/" target="_blank">传统寿险</a>&nbsp;<a href="http://xz.vobao.com/shouxian/tuantibaoxian/" target="_blank">团体保险</a>&nbsp;投资分红&nbsp;<a href="http://xz.vobao.com/shouxian/yanglaonianjin/" target="_blank">养老年金</a>&nbsp;<a href="http://xz.vobao.com/shouxian/shaoerjiaoyu/" target="_blank">少儿教育</a>&nbsp;<a href="http://xz.vobao.com/shouxian/liuxueqianzheng/" target="_blank">留学签证</a>&nbsp;<a href="http://xz.vobao.com/caixian/qichebaoxian/" target="_blank">汽车保险</a>&nbsp; </span>
+                            </div>
+                        </div> </li>
+                    <li class="me-hyxx2">
+                        <div class="me-hyxx21">
+                            <div class="me-hyxx111">
+                                <div class="me-hyxx1111">
+                                    <span class="me-hyxx1112"><span class="me-hyxx221"> </span><span class="me-hyxx11111"> <a href="http://www.vobao.com/userinfo/658426553917/" target="_blank" title="吉林长春平安保险代理人周海燕的个人名片"><img src="http://res.vobao.com/res1/201212/1809/658426553917_740826429680549.jpg" width="80" height="92" title="吉林长春平安保险代理人周海燕的个人名片" alt="吉林长春平安保险代理人周海燕的个人名片"> </a></span> <span class="me-hyxx1123"> <a href="http://www.ccpazx.cn" target="_blank" title="平安保险周海燕保险咨询网"> <img src="images/grwz-tb01.jpg" width="79" height="21" title="吉林长春平安保险周海燕保险咨询网"> </a></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+           <span class="me-hyxx11112">
+            <ul>
+                <li class="me-hyxm01"><span style="float: left; display: block; width: 48px; overflow: hidden;"> <a href="http://www.ccpazx.cn" target="_blank" title="吉林长春平安保险代理人周海燕">周海燕</a> </span><span style="float: left; padding-top: 5px; padding-left: 5px;"> <a id="qqChatU_1" href="javascript:void(0)" onclick="qqhits('1027477602','658426553917','0')"><img src="http://pres.vobao.com/Images/old/v2/Member/images/qqjt-hy15.gif" width="60" height="16"></a> </span><span class="me-hyxx1121"> <img src="images/phone-12.gif">18186861019 </span><span class="me-hyxx11121"> <a rel="nofollow" href="http://r.vobao.com/658426553917.shtml" title="总共提供五件有效从业证明文件、一件执业证等有效执业证明文件，并且通过验证。" target="_blank"> <img src="http://res.vobao.com/res1/201309/0315/lv08_763657577669005.png"> </a></span></li>
+                <li><a href="http://member.vobao.com/pinganbaoxian/" class="Para" title="平安保险代理人大全" target="_blank"> 平安保险</a> <a href="http://member.vobao.com/Jilin/Changchun/pinganbaoxian/" target="_blank" title="吉林长春平安保险代理人大全"> 长春市营业三区</a> </li>
+                <li> <a href="http://member.vobao.com/Jilin/Changchun/" class="Para" title="吉林长春代理人大全" target="_blank">吉林长春</a>&nbsp;<a href="http://member.vobao.com/Jilin/Changchun/" class="Para" title="吉林长春代理人大全" target="_blank"></a>&nbsp;<a href="http://member.vobao.com/Jilin/Changchun-CC/" class="Para" title="吉林长春长春代理人大全" target="_blank">长春</a>&nbsp; </li>
+                <li>从业时间：2000-01-05(<span nianxiancontainer="658426553917"></span>年)</li>
+                <li>回答咨询数：<a href="http://www.vobao.com/UserInfo/gbook/Index.aspx?UserID=658426553917&amp;SiteID=797078755279853607" target="_blank" title="吉林长春平安保险代理人周海燕回答了822个网友的提问">822</a></li>
+                <li> <span title="团体、个人出境旅游意外险链接网址http://www.jumi18.com/Register?partnerId=10749">个性签名：<a>团体、个人出境旅游意外险链接网址http://www.jumi18.com/Registe...</a></span> </li>
+            </ul> </span>
+           <span class="me-hyxx11113">
+            <ul>
+                <li> <a rel="nofollow" href="http://www.vobao.com/VipServer/?action1=0" target="_blank" style="text-decoration: none"><img src="http://pres.vobao.com/Images/old/v2/Member/images/jphy1.gif" title="沃保网金牌"><br><img src="images/jphy2.gif" alt="金牌"><img src="images/jphy2.gif" alt="金牌"><img src="images/jphy2.gif" alt="金牌"><img src="images/jphy2.gif" alt="金牌"><img src="images/jphy2.gif" alt="金牌"><img src="images/jphy2.gif" alt="金牌"><img src="images/jphy2.gif" alt="金牌"><img src="images/jphy2.gif" alt="金牌"><img src="images/jphy2.gif" alt="金牌"></a> </li>
+                <li> </li>
+                <li> </li>
+            </ul> </span>
+                                </div>
+                            </div>
+                            <div class="me-hyxx112">
+                                <span class="n_wei"><span class="n_wei_l">微信：</span><span class="n_wei_r"><img src="images/n_wei.jpg"><span class="n_weichild" style="display: none;"><img width="150px" hight="150px" src="http://res.vobao.com/res1/201402/0914/1_777566233679899.jpg"></span> </span> </span>
+                                <span class="me-hyxx1122"> <a rel="nofollow" href="http://weibo.com/u/2446711797" title="吉林长春平安保险周海燕新浪微博" target="_blank"><img src="images/wbgz-01.jpg" width="62" height="22"></a> </span>
+          <span class="me-hyxx1124">&nbsp;<a href="http://ccpazx.vobao.mobi" target="_blank"><img src="images/sjzd-tb02.jpg" width="79" height="21" title="吉林长春平安保险周海燕手机网站"></a><span class="n_wei_rNew">&nbsp;<img src="http://pres.vobao.com/Images/old/v2/Member/images/sjzd-tb04.jpg" width="79" height="21" title="手机网站"></span><span class="n_weichildNew" style="display: none;"> <img src="http://www.vobao.com/Handlers/KfbQRCode.ashx?url=http://v.vobao.com/u/658426553917" width="152px;" heigth="152px">
+            <div class="n_weichildNewSpan">
+                微信扫一扫
+            </div>
+            <div class="n_weichildNewSpan2">
+                查看TA的微信
+            </div> </span></span>
+                            </div>
+                            <div class="me-hyxx12">
+                                <span class="me-hyxx122">擅长领域： <a href="http://xz.vobao.com/shouxian/yiliaojibing/" target="_blank">医疗疾病</a>&nbsp;<a href="http://xz.vobao.com/shouxian/tuantibaoxian/" target="_blank">团体保险</a>&nbsp;<a href="http://xz.vobao.com/shouxian/yanglaonianjin/" target="_blank">养老年金</a>&nbsp;<a href="http://xz.vobao.com/shouxian/shaoerjiaoyu/" target="_blank">少儿教育</a>&nbsp;<a href="http://xz.vobao.com/caixian/qichebaoxian/" target="_blank">汽车保险</a>&nbsp;<a href="http://xz.vobao.com/caixian/caichansunshi/" target="_blank">财产损失</a>&nbsp;<a href="http://xz.vobao.com/caixian/qiyejingying/" target="_blank">企业财产</a>&nbsp; </span>
+                            </div>
+                        </div> </li>
+                    <li class="me-hyxx2">
+                        <div class="me-hyxx21">
+                            <div class="me-hyxx111">
+                                <div class="me-hyxx1111">
+                                    <span class="me-hyxx1112"><span class="me-hyxx221"> </span><span class="me-hyxx11111"> <a href="http://www.vobao.com/userinfo/851707761956953560/" target="_blank" title="江苏南京新华保险代理人薛英英的个人名片"><img src="http://res.vobao.com/res1/201606/0811/20160608112516614薛英英1.jpg" width="80" height="92" title="江苏南京新华保险代理人薛英英的个人名片" alt="江苏南京新华保险代理人薛英英的个人名片"> </a></span> <span class="me-hyxx1123"> <a href="http://www.sybxpw.cn" target="_blank" title="新华保险薛英英保险咨询网"> <img src="images/grwz-tb01.jpg" width="79" height="21" title="江苏南京新华保险薛英英保险咨询网"> </a></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+           <span class="me-hyxx11112">
+            <ul>
+                <li class="me-hyxm01"><span style="float: left; display: block; width: 48px; overflow: hidden;"> <a href="http://www.sybxpw.cn" target="_blank" title="江苏南京新华保险代理人薛英英">薛英英</a> </span><span style="float: left; padding-top: 5px; padding-left: 5px;"> <a id="qqChatU_2" href="javascript:void(0)" onclick="qqhits('1179650545','851707761956953560','0')"><img src="http://pres.vobao.com/Images/old/v2/Member/images/qqjt-hy15.gif" width="60" height="16"></a> </span><span class="me-hyxx1121"> <img src="images/phone-12.gif">13776616868 </span><span class="me-hyxx11121"> <a rel="nofollow" href="http://r.vobao.com/851707761956953560.shtml" title="总共提供五件有效从业证明文件、一件执业证等有效执业证明文件，并且通过验证。" target="_blank"> <img src="http://res.vobao.com/res1/201309/0315/lv08_763657577669005.png"> </a></span></li>
+                <li><a href="http://member.vobao.com/xinhuabaoxian/" class="Para" title="新华保险代理人大全" target="_blank"> 新华保险</a> <a href="http://member.vobao.com/Jiangsu/Nanjing/xinhuabaoxian/" target="_blank" title="江苏南京新华保险代理人大全"> </a> </li>
+                <li> <a href="http://member.vobao.com/Jiangsu/Nanjing/" class="Para" title="江苏南京代理人大全" target="_blank">江苏南京</a>&nbsp;<a href="http://member.vobao.com/Jiangsu/Nanjing/" class="Para" title="江苏南京代理人大全" target="_blank"></a>&nbsp; </li>
+                <li>从业时间：2008-07-01(<span nianxiancontainer="851707761956953560"></span>年)</li>
+                <li>回答咨询数：<a href="http://www.vobao.com/UserInfo/gbook/Index.aspx?UserID=851707761956953560&amp;SiteID=851782266273223053" target="_blank" title="江苏南京新华保险代理人薛英英回答了14个网友的提问">14</a></li>
+                <li> <span title="诸事以舍为得，以退为进，怨亲善友，普同一等，荣辱而不惊，功成而弗居。">个性签名：<a>诸事以舍为得，以退为进，怨亲善友，普同一等，荣辱而不惊，功成而...</a></span> </li>
+            </ul> </span>
+           <span class="me-hyxx11113">
+            <ul>
+                <li> <a rel="nofollow" href="http://www.vobao.com/VipServer/?action1=0" target="_blank" style="text-decoration: none"><img src="http://pres.vobao.com/Images/old/v2/Member/images/jphy1.gif" title="沃保网金牌"><br><img src="images/jphy2.gif" alt="金牌"></a> </li>
+                <li> </li>
+                <li> </li>
+            </ul> </span>
+                                </div>
+                            </div>
+                            <div class="me-hyxx112">
+                                <span class="n_wei"><span class="n_wei_l">微信：</span><span class="n_wei_r"><img src="images/n_wei.jpg"><span class="n_weichild" style="display: none;"><img width="150px" hight="150px" src="http://res.vobao.com/res1/201605/3114/20160531142007868薛英英2.png"></span> </span> </span>
+                                <span class="me-hyxx1122"> <img src="images/wbgz-02.jpg" width="62" height="22"> </span>
+          <span class="me-hyxx1124">&nbsp;<a href="http://sybxpw.vobao.mobi" target="_blank"><img src="images/sjzd-tb02.jpg" width="79" height="21" title="江苏南京新华保险薛英英手机网站"></a><span class="n_wei_rNew">&nbsp;<img src="http://pres.vobao.com/Images/old/v2/Member/images/sjzd-tb04.jpg" width="79" height="21" title="手机网站"></span><span class="n_weichildNew" style="display: none;"> <img src="http://www.vobao.com/Handlers/KfbQRCode.ashx?url=http://v.vobao.com/u/851707761956953560" width="152px;" heigth="152px">
+            <div class="n_weichildNewSpan">
+                微信扫一扫
+            </div>
+            <div class="n_weichildNewSpan2">
+                查看TA的微信
+            </div> </span></span>
+                            </div>
+                            <div class="me-hyxx12">
+                                <span class="me-hyxx122">擅长领域： <a href="http://xz.vobao.com/shouxian/renshenyiwai/" target="_blank">人身意外</a>&nbsp;<a href="http://xz.vobao.com/shouxian/yiliaojibing/" target="_blank">医疗疾病</a>&nbsp;<a href="http://xz.vobao.com/shouxian/chuantongshouxian/" target="_blank">传统寿险</a>&nbsp;<a href="http://xz.vobao.com/shouxian/tuantibaoxian/" target="_blank">团体保险</a>&nbsp;投资分红&nbsp;<a href="http://xz.vobao.com/shouxian/yanglaonianjin/" target="_blank">养老年金</a>&nbsp;<a href="http://xz.vobao.com/shouxian/shaoerjiaoyu/" target="_blank">少儿教育</a>&nbsp;资产评估规划&nbsp; </span>
+                            </div>
+                        </div> </li>
+                    <li class="me-hyxx2">
+                        <div class="me-hyxx21">
+                            <div class="me-hyxx111">
+                                <div class="me-hyxx1111">
+                                    <span class="me-hyxx1112"><span class="me-hyxx221"> </span><span class="me-hyxx11111"> <a href="http://www.vobao.com/userinfo/839341238841427710/" target="_blank" title="福建厦门太平洋保险代理人黎志辉的个人名片"><img src="http://res.vobao.com/res1/201602/1915/20160219154520333839341238841427710avatar1.jpg" width="80" height="92" title="福建厦门太平洋保险代理人黎志辉的个人名片" alt="福建厦门太平洋保险代理人黎志辉的个人名片"> </a></span> <span class="me-hyxx1123"> <a href="http://www.zjtpybx.cn" target="_blank" title="太平洋保险黎志辉保险咨询网"> <img src="images/grwz-tb01.jpg" width="79" height="21" title="福建厦门太平洋保险黎志辉保险咨询网"> </a></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+           <span class="me-hyxx11112">
+            <ul>
+                <li class="me-hyxm01"><span style="float: left; display: block; width: 48px; overflow: hidden;"> <a href="http://www.zjtpybx.cn" target="_blank" title="福建厦门太平洋保险代理人黎志辉">黎志辉</a> </span><span style="float: left; padding-top: 5px; padding-left: 5px;"> <a id="qqChatU_3" href="javascript:void(0)" onclick="qqhits('1044930279','839341238841427710','0')"><img src="http://pres.vobao.com/Images/old/v2/Member/images/qqjt-hy15.gif" width="60" height="16"></a> </span><span class="me-hyxx1121"> <img src="images/phone-12.gif">13959258078 </span><span class="me-hyxx11121"> <a rel="nofollow" href="http://r.vobao.com/839341238841427710.shtml" title="总共提供五件有效从业证明文件、一件执业证等有效执业证明文件，并且通过验证。" target="_blank"> <img src="http://res.vobao.com/res1/201309/0315/lv08_763657577669005.png"> </a></span></li>
+                <li><a href="http://member.vobao.com/taipingyangbaoxian/" class="Para" title="太平洋保险代理人大全" target="_blank"> 太平洋保险</a> <a href="http://member.vobao.com/Fujian/Xiamen-Xiamen/taipingyangbaoxian/" target="_blank" title="福建厦门太平洋保险代理人大全"> 太平洋保险厦门岛内联合营销区</a> </li>
+                <li> <a href="http://member.vobao.com/Fujian/Xiamen/" class="Para" title="福建厦门代理人大全" target="_blank">福建厦门</a>&nbsp;<a href="http://member.vobao.com/Fujian/Xiamen-Xiamen/" class="Para" title="福建厦门厦门代理人大全" target="_blank">厦门</a>&nbsp; </li>
+                <li>从业时间：2006-04-10(<span nianxiancontainer="839341238841427710"></span>年)</li>
+                <li>回答咨询数：<a href="http://www.vobao.com/UserInfo/gbook/Index.aspx?UserID=839341238841427710&amp;SiteID=839607513005315894" target="_blank" title="福建厦门太平洋保险代理人黎志辉回答了2个网友的提问">2</a></li>
+                <li> <span title="量身定做最适合您的保险计划">个性签名：<a>量身定做最适合您的保险计划</a></span> </li>
+            </ul> </span>
+           <span class="me-hyxx11113">
+            <ul>
+                <li> <a rel="nofollow" href="http://www.vobao.com/VipServer/?action1=0" target="_blank" style="text-decoration: none"><img src="http://pres.vobao.com/Images/old/v2/Member/images/jphy1.gif" title="沃保网金牌"><br><img src="images/jphy2.gif" alt="金牌"></a> </li>
+                <li> </li>
+                <li> </li>
+            </ul> </span>
+                                </div>
+                            </div>
+                            <div class="me-hyxx112">
+                                <span class="n_wei"><span class="n_wei_l">微信：</span><span class="n_wei_r"><img src="images/n_wei.jpg"><span class="n_weichild" style="display: none;"><img width="150px" hight="150px" src="http://res.vobao.com/res1/201604/1115/20160411153755453黎志辉二维码.jpg"></span> </span> </span>
+                                <span class="me-hyxx1122"> <img src="images/wbgz-02.jpg" width="62" height="22"> </span>
+          <span class="me-hyxx1124">&nbsp;<a href="http://zjtpybx.vobao.mobi" target="_blank"><img src="images/sjzd-tb02.jpg" width="79" height="21" title="福建厦门太平洋保险黎志辉手机网站"></a><span class="n_wei_rNew">&nbsp;<img src="http://pres.vobao.com/Images/old/v2/Member/images/sjzd-tb04.jpg" width="79" height="21" title="手机网站"></span><span class="n_weichildNew" style="display: none;"> <img src="http://www.vobao.com/Handlers/KfbQRCode.ashx?url=http://v.vobao.com/u/839341238841427710" width="152px;" heigth="152px">
+            <div class="n_weichildNewSpan">
+                微信扫一扫
+            </div>
+            <div class="n_weichildNewSpan2">
+                查看TA的微信
+            </div> </span></span>
+                            </div>
+                            <div class="me-hyxx12">
+                                <span class="me-hyxx122">擅长领域： </span>
+                            </div>
+                        </div> </li>
+                    <li class="me-hyxx2">
+                        <div class="me-hyxx21">
+                            <div class="me-hyxx111">
+                                <div class="me-hyxx1111">
+                                    <span class="me-hyxx1112"><span class="me-hyxx221"> </span><span class="me-hyxx11111"> <a href="http://www.vobao.com/userinfo/720294228520/" target="_blank" title="广东深圳平安保险代理人黄霞的个人名片"><img src="http://res.vobao.com/res1/201606/2414/20160624143814230720294228520avatar1.jpg" width="80" height="92" title="广东深圳平安保险代理人黄霞的个人名片" alt="广东深圳平安保险代理人黄霞的个人名片"> </a></span> <span class="me-hyxx1123"> <a href="http://www.pmzdjb.cn" target="_blank" title="平安保险黄霞保险咨询网"> <img src="images/grwz-tb01.jpg" width="79" height="21" title="广东深圳平安保险黄霞保险咨询网"> </a></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+           <span class="me-hyxx11112">
+            <ul>
+                <li class="me-hyxm01"><span style="float: left; display: block; width: 48px; overflow: hidden;"> <a href="http://www.pmzdjb.cn" target="_blank" title="广东深圳平安保险代理人黄霞">黄霞</a> </span><span style="float: left; padding-top: 5px; padding-left: 5px;"> <a id="qqChatU_4" href="javascript:void(0)" onclick="qqhits('1274566878','720294228520','0')"><img src="http://pres.vobao.com/Images/old/v2/Member/images/qqjt-hy15.gif" width="60" height="16"></a> </span><span class="me-hyxx1121"> <img src="images/phone-12.gif">15818635530 </span><span class="me-hyxx11121"> <a rel="nofollow" href="http://r.vobao.com/720294228520.shtml" title="总共提供五件有效从业证明文件、一件执业证等有效执业证明文件，并且通过验证。" target="_blank"> <img src="http://res.vobao.com/res1/201309/0315/lv08_763657577669005.png"> </a></span></li>
+                <li><a href="http://member.vobao.com/pinganbaoxian/" class="Para" title="平安保险代理人大全" target="_blank"> 平安保险</a> <a href="http://member.vobao.com/Guangdong/Shenzhen/pinganbaoxian/" target="_blank" title="广东深圳平安保险代理人大全"> 中国平安人寿保险公司深圳分公司龙岗中心城</a> </li>
+                <li> <a href="http://member.vobao.com/Guangdong/Shenzhen/" class="Para" title="广东深圳代理人大全" target="_blank">广东深圳</a>&nbsp;<a href="http://member.vobao.com/Guangdong/Shenzhen/" class="Para" title="广东深圳代理人大全" target="_blank"></a>&nbsp; </li>
+                <li>从业时间：2009-12-29(<span nianxiancontainer="720294228520"></span>年)</li>
+                <li>回答咨询数：<a href="http://www.vobao.com/UserInfo/gbook/Index.aspx?UserID=720294228520&amp;SiteID=853857456653383586" target="_blank" title="广东深圳平安保险代理人黄霞回答了18个网友的提问">18</a></li>
+                <li> <span title="平安保险，保您一生平安！拿走您的担忧，完成您的心愿！">个性签名：<a>平安保险，保您一生平安！拿走您的担忧，完成您的心愿！</a></span> </li>
+            </ul> </span>
+           <span class="me-hyxx11113">
+            <ul>
+                <li> <a rel="nofollow" href="http://www.vobao.com/VipServer/?action1=0" target="_blank" style="text-decoration: none"><img src="http://pres.vobao.com/Images/old/v2/Member/images/jphy1.gif" title="沃保网金牌"><br><img src="images/jphy2.gif" alt="金牌"><img src="images/jphy2.gif" alt="金牌"><img src="images/jphy2.gif" alt="金牌"></a> </li>
+                <li> </li>
+                <li> </li>
+            </ul> </span>
+                                </div>
+                            </div>
+                            <div class="me-hyxx112">
+                                <span class="n_wei"><span class="n_wei_l">微信：</span><span class="n_wei_r"><img src="images/n_wei.jpg"><span class="n_weichild" style="display: none;"><img width="150px" hight="150px" src="http://res.vobao.com/res1/201606/2414/20160624143831809黄霞.png"></span> </span> </span>
+                                <span class="me-hyxx1122"> <img src="images/wbgz-02.jpg" width="62" height="22"> </span>
+          <span class="me-hyxx1124">&nbsp;<a href="http://pmzdjb.vobao.mobi" target="_blank"><img src="images/sjzd-tb02.jpg" width="79" height="21" title="广东深圳平安保险黄霞手机网站"></a><span class="n_wei_rNew">&nbsp;<img src="http://pres.vobao.com/Images/old/v2/Member/images/sjzd-tb04.jpg" width="79" height="21" title="手机网站"></span><span class="n_weichildNew" style="display: none;"> <img src="http://www.vobao.com/Handlers/KfbQRCode.ashx?url=http://v.vobao.com/u/720294228520" width="152px;" heigth="152px">
+            <div class="n_weichildNewSpan">
+                微信扫一扫
+            </div>
+            <div class="n_weichildNewSpan2">
+                查看TA的微信
+            </div> </span></span>
+                            </div>
+                            <div class="me-hyxx12">
+                                <span class="me-hyxx122">擅长领域： <a href="http://xz.vobao.com/shouxian/yiliaojibing/" target="_blank">医疗疾病</a>&nbsp;投资分红&nbsp;<a href="http://xz.vobao.com/shouxian/yanglaonianjin/" target="_blank">养老年金</a>&nbsp;<a href="http://xz.vobao.com/shouxian/shaoerjiaoyu/" target="_blank">少儿教育</a>&nbsp; </span>
+                            </div>
+                        </div> </li>
+                    <li class="me-hyxx2">
+                        <div class="me-hyxx21">
+                            <div class="me-hyxx111">
+                                <div class="me-hyxx1111">
+                                    <span class="me-hyxx1112"><span class="me-hyxx221"> </span><span class="me-hyxx11111"> <a href="http://www.vobao.com/userinfo/837514587962574888/" target="_blank" title="上海平安保险代理人陈春红的个人名片"><img src="http://res.vobao.com/res1/201512/2515/20151225154246597陈春红.jpg" width="80" height="92" title="上海平安保险代理人陈春红的个人名片" alt="上海平安保险代理人陈春红的个人名片"> </a></span> <span class="me-hyxx1123"> <a href="http://www.pazcl.cn" target="_blank" title="平安保险陈春红保险咨询网"> <img src="images/grwz-tb01.jpg" width="79" height="21" title="上海平安保险陈春红保险咨询网"> </a></span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+           <span class="me-hyxx11112">
+            <ul>
+                <li class="me-hyxm01"><span style="float: left; display: block; width: 48px; overflow: hidden;"> <a href="http://www.pazcl.cn" target="_blank" title="上海平安保险代理人陈春红">陈春红</a> </span><span style="float: left; padding-top: 5px; padding-left: 5px;"> <a id="qqChatU_5" href="javascript:void(0)" onclick="qqhits('326838894','837514587962574888','0')"><img src="http://pres.vobao.com/Images/old/v2/Member/images/qqjt-hy15.gif" width="60" height="16"></a> </span><span class="me-hyxx1121"> <img src="images/phone-12.gif">13916491239 </span><span class="me-hyxx11121"> <a rel="nofollow" href="http://r.vobao.com/837514587962574888.shtml" title="总共提供五件有效从业证明文件、一件执业证等有效执业证明文件，并且通过验证。" target="_blank"> <img src="http://res.vobao.com/res1/201309/0315/lv08_763657577669005.png"> </a></span></li>
+                <li><a href="http://member.vobao.com/pinganbaoxian/" class="Para" title="平安保险代理人大全" target="_blank"> 平安保险</a> <a href="http://member.vobao.com/Shanghai/Shanghai/pinganbaoxian/" target="_blank" title="上海平安保险代理人大全"> 中国平安保险股份有限公司上海分公司</a> </li>
+                <li> <a href="http://member.vobao.com/Shanghai/" class="Para" title="上海市上海代理人大全" target="_blank">上海市上海</a>&nbsp;<a href="http://member.vobao.com/Shanghai/Shanghai/" class="Para" title="上海市上海代理人大全" target="_blank">上海</a>&nbsp; </li>
+                <li>从业时间：2008-07-01(<span nianxiancontainer="837514587962574888"></span>年)</li>
+                <li>回答咨询数：<a href="http://www.vobao.com/UserInfo/gbook/Index.aspx?UserID=837514587962574888&amp;SiteID=837696718427887648" target="_blank" title="上海平安保险代理人陈春红回答了26个网友的提问">26</a></li>
+                <li> <span title="现实生活中，风险与机遇并存，希望与厄运同行，寿险是人们抵御风险，战胜厄运的最佳方法">个性签名：<a>现实生活中，风险与机遇并存，希望与厄运同行，寿险是人们抵御风险...</a></span> </li>
+            </ul> </span>
+           <span class="me-hyxx11113">
+            <ul>
+                <li> <a rel="nofollow" href="http://www.vobao.com/VipServer/?action1=0" target="_blank" style="text-decoration: none"><img src="http://pres.vobao.com/Images/old/v2/Member/images/jphy1.gif" title="沃保网金牌"><br><img src="images/jphy2.gif" alt="金牌"></a> </li>
+                <li> </li>
+                <li> <a href="http://www.vobao.com/cstar/detail.aspx?id=838204332570425635" title="沃保保险网城市明星" target="_blank"><img alt="沃保保险网城市明星" title="沃保保险网城市明星" src="images/vn_star.jpg"></a> </li>
+            </ul> </span>
+                                </div>
+                            </div>
+                            <div class="me-hyxx112">
+                                <span class="n_wei"><span class="n_wei_l">微信：</span><span class="n_wei_r"><img src="images/n_wei.jpg"><span class="n_weichild" style="display: none;"><img width="150px" hight="150px" src="http://res.vobao.com/res1/201512/2313/20151223134554418陈春红二维码.jpg"></span> </span> </span>
+                                <span class="me-hyxx1122"> <img src="images/wbgz-02.jpg" width="62" height="22"> </span>
+          <span class="me-hyxx1124">&nbsp;<a href="http://pazcl.vobao.mobi" target="_blank"><img src="images/sjzd-tb02.jpg" width="79" height="21" title="上海平安保险陈春红手机网站"></a><span class="n_wei_rNew">&nbsp;<img src="http://pres.vobao.com/Images/old/v2/Member/images/sjzd-tb04.jpg" width="79" height="21" title="手机网站"></span><span class="n_weichildNew" style="display: none;"> <img src="http://www.vobao.com/Handlers/KfbQRCode.ashx?url=http://v.vobao.com/u/837514587962574888" width="152px;" heigth="152px">
+            <div class="n_weichildNewSpan">
+                微信扫一扫
+            </div>
+            <div class="n_weichildNewSpan2">
+                查看TA的微信
+            </div> </span></span>
+                            </div>
+                            <div class="me-hyxx12">
+                                <span class="me-hyxx122">擅长领域： <a href="http://xz.vobao.com/shouxian/lvyoubaoxian/" target="_blank">旅游保险</a>&nbsp;<a href="http://xz.vobao.com/shouxian/renshenyiwai/" target="_blank">人身意外</a>&nbsp;<a href="http://xz.vobao.com/shouxian/yiliaojibing/" target="_blank">医疗疾病</a>&nbsp;<a href="http://xz.vobao.com/shouxian/chuantongshouxian/" target="_blank">传统寿险</a>&nbsp;<a href="http://xz.vobao.com/shouxian/tuantibaoxian/" target="_blank">团体保险</a>&nbsp;投资分红&nbsp;<a href="http://xz.vobao.com/shouxian/yanglaonianjin/" target="_blank">养老年金</a>&nbsp;<a href="http://xz.vobao.com/shouxian/shaoerjiaoyu/" target="_blank">少儿教育</a>&nbsp;理财分红。&nbsp;万能险&nbsp; </span>
+                            </div>
+                        </div> </li>
+                </ul>
+                <span id="lblRpNullData"></span>
+            </div>
+            <div class="page_change">
+                <a href="http://member.vobao.com/0_0_1/" class="page_link" title="首 页">首 页</a>
+                <a href="http://member.vobao.com/0_0_1/" class="page_link" title="上一页">上一页</a>
+                <a href="http://member.vobao.com/0_0_1/" class="current_page_link" title="第1页">1</a>
+                <a href="http://member.vobao.com/0_0_2/" class="page_link" title="第2页">2</a>
+                <a href="http://member.vobao.com/0_0_3/" class="page_link" title="第3页">3</a>
+                <a href="http://member.vobao.com/0_0_4/" class="page_link" title="第4页">4</a>
+                <a href="http://member.vobao.com/0_0_5/" class="page_link" title="第5页">5</a>
+                <a href="http://member.vobao.com/0_0_6/" class="page_link" title="第6页">6</a>
+                <a href="http://member.vobao.com/0_0_7/" class="page_link" title="第7页">7</a>
+                <a href="http://member.vobao.com/0_0_8/" class="page_link" title="第8页">8</a>
+                <a href="http://member.vobao.com/0_0_2/" class="page_link" title="下一页">下一页</a>
+                <a href="http://member.vobao.com/0_0_50/" class="page_link" title="尾 页">尾 页</a>
+                <span class="me-fyd01">到</span>
+                <input name="page" id="pagetext" class="wxt-xzss01" value="1" maxlength="36" style="ime-mode:disabled;" onkeypress="if ((event.keyCode<48 || event.keyCode>57) &amp;&amp; event.keyCode!=46)event.returnValue=false;" onfocus="javascript:if(this.value=='1'){this.value='';this.style.color='#104B7C'}" onblur="javascript:if(this.value==''){this.value='1';this.style.color='#104B7C';}">
+                <script>
+                    function gopageurl(gourl)
+                    {
+                        window.location.href=gourl.substr(0,gourl.lastIndexOf('_')+1)+document.getElementById("pagetext").value+"/";
+                    }
+                </script>
+                <span class="me-fyd01">页</span>
+                <a href="javascript:void(0)" onclick="javascript:gopageurl('http://member.vobao.com/0_0_1/')" class="page_link" title="确定">确定</a>
+            </div>
+            <div class="xg_entry">
+                <div class="xg_entry_tit">
+                    下一步，您还可以：
+                </div>
+                <div class="xg_entry_Button">
+                    <a class="entry_link1" href="http://reg.vobao.com/Common/Register/?FromTp=71" title="会员注册">注册会员</a>
+                    <a class="entry_link2" href="http://ask.vobao.com/" title="发布提问"> 发布提问</a>
+                    <a class="entry_link3" href="http://toubao.vobao.com/?FromTp=18&amp;MonTp=10060&amp;RegFrom=10060" title="需求测试">需求测试</a>
+                    <a class="entry_link4" href="http://chat10.live800.com/live800/chatClient/chatbox.jsp?companyID=212536&amp;jid=9608402301&amp;enterurl=http%3A%2F%2Fwww%2Evobao%2Ecom%2Fqbar%2F&amp;pagetitle=%E4%BF%9D%E9%99%A9%E5%92%A8%E8%AF%A2_%E4%BF%9D%E9%99%A9%E8%AE%BA%E5%9D%9B_%E4%B9%B0%E4%BF%9D%E9%99%A9_%E4%BF%9D%E9%99%A9%E9%97%AE%E5%90%A7_%E6%B2%83%E4%BF%9D%E4%BF%9D%E9%99%A9%E7%BD%91&amp;pagereferrer=http%3A%2F%2Fadminbao%2Evobao%2Ecom%2Fadminbao%2FQBar%2FW_Question%2Easpx%3Fqf%3D3&amp;firstEnterUrl=http%3A%2F%2Fwww%2Evobao%2Ecom%2F&amp;lan=zh&amp;tm=1418351407000" title="预约代理人">预约代理人</a>
+                </div>
+            </div>
+            <!-- 相关搜索功能 -->
+            <div id="divAboutSearch" class="me-AboutSearch">
+                <label id="lblAboutSearch"> </label>
+            </div>
+            <div class="me-AboutCompany">
+                <ul>
+                    <li style="font-size: 12px; padding-top: 10px;">热门公司:</li>
+                    <li style="width: 650px;"><a href="http://member.vobao.com/pinganbaoxian/">平安保险</a> <a href="http://member.vobao.com/zhongguorenshou/">中国人寿</a> <a href="http://member.vobao.com/taipingyangbaoxian/"> 太平洋保险</a> <a href="http://member.vobao.com/xinhuabaoxian/">新华保险</a> <a href="http://member.vobao.com/taikangrenshou/"> 泰康人寿</a> <a href="http://member.vobao.com/taipingrenshou/">太平人寿</a> <a href="http://member.vobao.com/zhongguorenbao/"> 中国人保</a> <a href="http://member.vobao.com/youbangbaoxian/">友邦保险</a> <a href="http://member.vobao.com/zhongyingrenshou/">中英人寿</a> <a href="http://member.vobao.com/zhongyirenshou/"> 中意人寿</a> <a href="http://member.vobao.com/pinganchanxian/">平安产险</a> <a href="http://member.vobao.com/guoshoucaixian/"> 国寿财险</a> <a href="http://member.vobao.com/taipingyangcaixian/">太平洋财险</a> <a href="http://member.vobao.com/renbaocaixian/">人保财险</a> <a href="http://member.vobao.com/zhonghualianhe/"> 中华联合产险</a> </li>
+                </ul>
+            </div>
+            <!--提示信息 start-->
+            <div class="bottom_tx">
+                <span class="bottom_tx1"> <img src="http://pres.vobao.com/Images/old/v2/Member/images/xl-011.gif" width="16" height="16"></span>
+                <span class="bottom_tx2"> 没有找到适合的营销员？</span>
+                <span class="bottom_tx3"><a href="http://chat10.live800.com/live800/chatClient/chatbox.jsp?companyID=212536&amp;jid=9608402301&amp;enterurl=http%3A%2F%2Fwww%2Evobao%2Ecom%2Fservice%2F&amp;pagetitle=%E6%B2%83%E4%BF%9D%E7%BD%91%E5%AE%A2%E6%88%B7%E6%9C%8D%E5%8A%A1%E3%80%81%E6%8A%95%E8%AF%89%E4%B8%AD%E5%BF%83%EF%BC%8C%E7%BB%86%E5%90%AC%E6%82%A8%E7%9A%84%E5%BB%BA%E8%AE%AE%EF%BC%8C%E8%AF%9A%E5%8F%97%E6%82%A8%E7%9A%84%E7%9B%91%E7%9D%A3&amp;pagereferrer=&amp;tm=1353055014689" target="_blank">马上咨询客服</a> </span>
+                <span class="bottom_tx4">（在线客服将为您提供更多的选择！）</span>
+            </div>
+            <!--提示信息 end-->
+            <!--会员列表 end-->
+        </div>
+    </div>
+    <div class="me-right">
+        <!--广告图片 start-->
+        <div class="nbox">
+            <a href="http://reg.vobao.com/Common/Register/?FromTp=72" target="_blank"> <img src="http://pres.vobao.com/Images/old/v2/Member/images/n_gd.jpg"></a>
+        </div>
+        <!--免费在线投保 start-->
+        <div class="nbox3">
+            <h1> 免费需求测试</h1>
+            <div class="nbox_list">
+                <div class="nbox_left">
+                    性别:
+                </div>
+                <div class="nbox_right">
+                    <input type="radio" id="sexMan" name="sex">&nbsp;男&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" id="sexWoMan" name="sex">&nbsp;女
+                </div>
+            </div>
+            <div class="nbox_list">
+                <div class="nbox_left">
+                    出生年月:
+                </div>
+                <div class="nbox_right">
+                    <script language="javascript" type="text/javascript" src="/DatePicker/WdatePicker.js"></script>
+                    <input style="width:90px" class="Wdate" id="rborn" name="rborn" type="text" value="2016-07-03" onclick="WdatePicker({})">
+                </div>
+            </div>
+            <div class="nbox_list2">
+                <div class="nbox_left">
+                </div>
+                <div class="nbox_right2">
+                    <input type="button" id="btnReg" onclick="RegOnline()" class="n_but2">
+                </div>
+            </div>
+        </div>
+        <!--需求测试广告----------------->
+        <div class="nbox" style="margin-top: 10px;">
+            <a href="http://toubao.vobao.com/?FromTp=18&amp;MonTp=10059&amp;RegFrom=10059" target="_blank"> <img src="http://pres.vobao.com/Images/old/v2/images/adv/ad_baorequest.jpg" alt="" style="width: 253px;"></a>
+        </div>
+        <!--最新投保案例 start-->
+        <div class="nbox3">
+            <h1> 最新投保案例 <span style="margin-left: 90px;"><a href="http://news.vobao.com/zhinan/yiwai/anli_list.shtml" target="_blank">更多&gt;&gt;</a></span> </h1>
+        </div>
+        <!--广告图片 start-->
+        <div class="nbox" style="margin-top: 10px;">
+            <a href="http://ask.vobao.com/" target="_blank"> <img src="http://pres.vobao.com/Images/old/v2/Member/images/n_gd2.jpg"></a>
+        </div>
+        <!--热门险种 start-->
+        <div class="nbox3">
+            <h1> 热门险种 <span style="margin-left: 120px;"><a href="http://p.vobao.com/" target="_blank"> 更多&gt;&gt;</a></span> </h1>
+            <div class="tblist2">
+                <div class="tblist_left">
+                    <a href="http://p.vobao.com/taipingrenshou/851348323516552876.shtml" target="_blank" title="太平欣悦一世年金保险"> 太平欣悦一世年金保险</a>
+                </div>
+            </div>
+            <div class="tblist2">
+                <div class="tblist_left">
+                    <a href="http://p.vobao.com/taikangrenshou/817396626007629174.shtml" target="_blank" title="泰康鑫享人生保险计划"> 泰康鑫享人生保险计划</a>
+                </div>
+            </div>
+            <div class="tblist2">
+                <div class="tblist_left">
+                    <a href="http://p.vobao.com/zhongguorenbao/795781873452234609.shtml" target="_blank" title="人保寿险保险无忧一生重大疾病保险"> 人保寿险保险无忧一生重大疾病保...</a>
+                </div>
+            </div>
+            <div class="tblist2">
+                <div class="tblist_left">
+                    <a href="http://p.vobao.com/xinhuabaoxian/826822078780210687.shtml" target="_blank" title="健康无忧C款重大疾病保险"> 健康无忧C款重大疾病保险</a>
+                </div>
+            </div>
+            <div class="tblist2">
+                <div class="tblist_left">
+                    <a href="http://p.vobao.com/zhongguorenshou/843996149148082667.shtml" target="_blank" title="国寿鑫福一生两全保险（分红型）+ 国寿鑫账户两全保险（万能型）（尊享版）"> 国寿鑫福一生两全保险（分红型）...</a>
+                </div>
+            </div>
+            <div class="tblist2">
+                <div class="tblist_left">
+                    <a href="http://p.vobao.com/taipingyangbaoxian/849369069794941544.shtml" target="_blank" title="少儿超能宝"> 少儿超能宝</a>
+                </div>
+            </div>
+            <div class="tblist2">
+                <div class="tblist_left">
+                    <a href="http://p.vobao.com/huaxiarenshou/824658232410087907.shtml" target="_blank" title="华夏福临门年金保险（2015至尊版）"> 华夏福临门年金保险（2015至尊版...</a>
+                </div>
+            </div>
+            <div class="tblist2">
+                <div class="tblist_left">
+                    <a href="http://p.vobao.com/pinganbaoxian/844508700397785713.shtml" target="_blank" title="平安少儿平安福"> 平安少儿平安福</a>
+                </div>
+            </div>
+            <div class="tblist2">
+                <div class="tblist_left">
+                    <a href="http://p.vobao.com/yangguangbaoxian/819733258158922632.shtml" target="_blank" title="阳光人寿金娃娃少儿两全保险B 款（万能型）"> 阳光人寿金娃娃少儿两全保险B 款...</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clr">
+    </div>
+    <div class="w1000 main_box mT15" id="YouQingLink">
+        <div id="FriendlyLink" class="channelLink">
+            <div class="clinkTitle">
+                友情链接
+                <span><a href="http://www.vobao.com/link/" target="_blank">更多友链&gt;&gt;</a></span>
+            </div>
+            <div class="clinCont">
+                <div class="clinContK">
+                    <span><a href="http://hk.vobao.com" target="_blank" title=""> 香港保险</a></span>
+                    <span><a href="http://p.vobao.com/jihuashu/" target="_blank" title="保险计划书"> 保险计划书</a></span>
+                    <span><a href="http://baike.vobao.com/" target="_blank" title="保险百科"> 保险百科</a></span>
+                    <span><a href="http://ask.vobao.com" target="_blank" title=""> 保险论坛</a></span>
+                    <span><a href="http://ks.vobao.com/" target="_blank" title="保险代理人资格考试试题"> 保险代理人资格考试试题</a></span>
+                    <span><a href="http://www.vobao.com/zt/mbx/" target="_blank" title=""> 买保险</a></span>
+                    <span><a href="http://www.vobao.com/zt/baoxiangongsipaiming/" target="_blank" title=""> 保险公司排名</a></span>
+                    <span><a href="http://www.vobao.com/zt/lzwxyj/" target="_blank" title=""> 五险一金</a></span>
+                    <span><a href="http://shanghai.roadoor.com/" target="_blank" title=""> 上海贷款</a></span>
+                    <span><a href="http://www.99gumin.com" target="_blank" title=""> 重庆证券公司</a></span>
+                    <span><a href="http://xiamen.haodai.com/" target="_blank" title=""> 厦门贷款</a></span>
+                    <span><a href="http://hy.yahui.cc/" target="_blank" title=""> 外汇交易</a></span>
+                    <span><a href="http://jinshu.feijiu.net" target="_blank" title=""> 废金属</a></span>
+                    <span><a href="http://np.chinapower.com.cn/" target="_blank" title=""> 核电</a></span>
+                    <span><a href="http://alu.ccmn.cn" target="_blank" title=""> 铝锭价格</a></span>
+                    <span><a href="http://licai.cofool.com" target="_blank" title=""> 同城理财</a></span>
+                    <span><a href="http://www.ucai123.com" target="_blank" title=""> 航运指数</a></span>
+                    <span><a href="http://www.eboce.com" target="_blank" title=""> 渤海商品交易所</a></span>
+                    <span><a href="http://forex.taojinyi.com" target="_blank" title=""> 汇率</a></span>
+                    <span><a href="http://www.bjsqdb.cn" target="_blank" title=""> 房屋抵押贷款</a></span>
+                    <span><a href="http://bm.szhk.com" target="_blank" title=""> 便民服务</a></span>
+                    <span><a href="http://guangxi.huangye88.com/" target="_blank" title=""> 广西信息港</a></span>
+                    <span><a href="http://shantou.liebiao.com/" target="_blank" title=""> 汕头列表网</a></span>
+                    <span><a href="http://xm.zhulong.com/" target="_blank" title=""> 项目管理</a></span>
+                    <span><a href="http://www.tjgjs.cn" target="_blank" title=""> 天通银</a></span>
+                    <span><a href="http://www.huangjinzhijia.com/" target="_blank" title=""> 黄金投资入门</a></span>
+                    <span><a href="http://member.vobao.com/" target="_blank" title=""> 保险代理人</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 浮动按钮 -->
+    <div id="divButton" class="fDivButton">
+        <ul>
+            <li><a href="http://d.vobao.com" target="_blank">体验新版</a> </li>
+        </ul>
+    </div>
+    <style type="text/css">
+        .wb_hfrz img
+        {
+            width: 110px;
+            height: 35px;
+        }
+
+    </style>
+    <script type="text/javascript" language="javascript" src="http://chat10.live800.com/live800/chatClient/floatButton.js?jid=9608402301&amp;companyID=212536&amp;configID=182593&amp;codeType=custom"></script>
+    <script type="text/javascript" language="javascript" src="http://chat10.live800.com/live800/chatClient/monitor.js?jid=9608402301&amp;companyID=212536&amp;configID=182295&amp;codeType=custom"></script>
+    <div class="clr">
+    </div>
+    <!-- 登入弹出窗开始 -->
+    <div style="width: 1000px; margin: 0 auto;">
+        <div class="w998 foot_direct" style="float: left;">
+            <a class="grawA" href="http://www.vobao.com/about/index.aspx" target="_blank"> 关于沃保</a> -
+            <a class="grawA" href="http://www.vobao.com/about/contact.aspx" rel="nofollow" target="_blank">联系我们</a> -
+            <a class="grawA" href="http://www.vobao.com/about/Sitemap.aspx" target="_blank">网站导航</a> -
+            <a class="grawA" href="http://www.vobao.com/about/law_vobao.aspx" target="_blank" rel="nofollow">法律声明</a> -
+            <a class="grawA" href="http://www.vobao.com/about/seeking.aspx" target="_blank" rel="nofollow">招聘信息</a> -
+            <a class="grawA" href="http://pay.vobao.com/" target="_blank" rel="nofollow">支付中心</a> -
+            <a class="grawA" href="http://www.vobao.com/VipServer/index.aspx" rel="nofollow" target="_blank">VIP</a> -
+            <a class="grawA" href="http://www.vobao.com/link" target="_blank">友情链接</a> -
+            <a class="grawA" href="http://m.vobao.com/" target="_blank"> 保险代理人手机站</a>
+        </div>
+        <div class="wb_foot" style="float: left;">
+            <div class="wb_bottom">
+                Copyright © 2008-2016
+                <b><a href="http://www.vobao.com" class="black">沃保保险网</a></b> 厦门诚创网络有限公司 版权所有
+                <a href="http://www.vobao.com/zz.htm" target="_blank" rel="nofollow" class="black">增值电信业务经营许可证（ISP/ICP）</a>
+                <br> 闽ICP备08003619号
+                <script type="text/javascript">
+                    var cnzzid = "30088424";
+                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    var cnzzhttp = document.location.href.toLowerCase();
+                    if (cnzzhttp.indexOf("baike.vobao.com") != -1) {
+                        cnzzid = "30088422";
+                    }
+                    if (cnzzhttp.indexOf("member.vobao.com") != -1) {
+                        cnzzid = "30088406";
+                    }
+                    if (cnzzhttp.indexOf("download.vobao.com") != -1) {
+                        cnzzid = "30088419";
+                    }
+                    if (cnzzhttp.indexOf("baoxian.vobao.com") != -1) {
+                        cnzzid = "30088413";
+                    }
+                    if (cnzzhttp.indexOf("ks.vobao.com") != -1) {
+                        cnzzid = "30088414";
+                    }
+                    if (cnzzhttp.indexOf("share.vobao.com") != -1) {
+                        cnzzid = "30088416";
+                    }
+                    if (cnzzhttp.indexOf("www.vobao.com/help") != -1) {
+                        cnzzid = "30088423";
+                    }
+                    if (cnzzhttp.indexOf("www.vobao.com/zt/") != -1) {
+                        cnzzid = "30088420";
+                    }
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_" + cnzzid + "'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D" + cnzzid + "%26l%3D2' type='text/javascript'%3E%3C/script%3E"));
+                </script>
+                <script type="text/javascript">
+                    if (cnzzid != "30088424")
+                    {
+                        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                        document.write(unescape("%3Cspan id='cnzz_stat_icon_30088424'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/c.php%3Fid%3D30088424%26l%3D2' type='text/javascript'%3E%3C/script%3E"));
+                    }
+                </script> &nbsp;
+                <font color="#67A921">客服热线: 4006-776-886</font>
+            </div>
+        </div>
+        <div id="bottomCert" class="wb_hfrz" style="float: left;">
+            <a href="http://www.vobao.com/zz.htm" rel="nofollow" target="_blank"> <img src="http://www.vobao.com/images/cx1.jpg" alt="增值电信业务经营许可证" border="0"></a>
+            <a href="http://www.vobao.com/yyzz.htm" rel="nofollow" target="_blank"> <img src="http://www.vobao.com/images/cx5.jpg" alt="企业法人营业执照" border="0"></a>
+            <a href="http://www.xiamen.cyberpolice.cn" rel="nofollow" target="_blank"> <img src="http://www.vobao.com/images/cx6.jpg" alt="厦门网络警察报警平台" border="0"></a>
+        </div>
+        <div class="blank9">
+        </div>
+        <div class="blank9">
+        </div>
+        <div class="blank9">
+        </div>
+        <div class="blank9">
+        </div>
+    </div>
+    <style type="text/css">
+        /*右边广告漂浮*/
+        .float_ad{bottom: 50px; display: block;position: fixed; right: 10px;text-align: center; width:195px;overflow: visible; margin:0;_position:absolute; _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight);}
+        .float_ad_wx{float:left; width:135px; height:246px; display:none; margin-left:5px; overflow:hidden;}
+        .float_ad_body{height:244px; border:1px solid #e5e5e5; width:48px; background:#fbfbfb; float:right;display: inline; overflow:hidden;}
+        .float_ad_body2{height:244px; border:1px solid #e5e5e5; width:48px; background:#fbfbfb; float:right; display:none; overflow:hidden;}
+        .float_ad_tw{width:48px; height:30px; border-bottom:1px solid #cecece;text-align:center;color:#666666; float:left;  font-size:14px; margin-top:18px;display: inline; overflow:hidden;}
+        .float_ad_tw a{color:#666666; text-decoration:none;}
+        .float_ad_wx2{width:48px; height:30px; border-bottom:1px solid #cecece;text-align:center;color:#666666;float:left; font-size:14px;margin-top:18px;display: inline; overflow:hidden;}
+        .float_ad_jy{width:48px; height:30px; border-bottom:1px solid #cecece;text-align:center;color:#666666;float:left; font-size:14px;margin-top:18px;display: inline; overflow:hidden;}
+        .float_ad_jy a{color:#666666; text-decoration:none;}
+        .float_ad_fx{width:48px; height:30px; border-bottom:1px solid #cecece;text-align:center; color:#666666;float:left;  font-size:14px;margin-top:18px;display: inline; overflow:hidden;}
+        .float_ad_fx a{color:#666666; text-decoration:none;}
+        .float_ad_top{width:48px; height:40px;  text-align:center; color:#666666;float:left;  font-size:14px;margin-top:8px;display: inline; }
+        .float_ad_top a{color:#666666; text-decoration:none;}
+        * html .float_ad /* IE6 右侧固定 */ {position:absolute;right:auto;left:expression(eval(document.documentElement.scrollLeft+document.documentElement.clientWidth-this.offsetWidth)-(parseInt(this.currentStyle.marginLeft,10)||0)-(parseInt(this.currentStyle.marginRight,10)||0));}
+    </style>
+    <div class="float_ad">
+        <div id="weixin_1" class="float_ad_wx" onmouseover="display_img()" onmouseout="display_none()">
+            <img src="/images/weixin_1.jpg">
+        </div>
+        <div class="float_ad_body2" onmousemove="dis_flt()" onmouseout="dis_flt_none()" id="id_flt">
+            <span class="float_ad_tw"><a href="http://ask.vobao.com/">提问</a></span>
+            <span class="float_ad_wx2"> <img src="/images/weixin.jpg" onmouseover="display_img()" onmouseout="display_none()"></span>
+            <span class="float_ad_jy"><a href="http://www.vobao.com/Help/service2.aspx"> 建议</a></span>
+            <span class="float_ad_fx"><a href="http://share.vobao.com/"> 分享</a></span>
+            <span class="float_ad_top"><a href="#vobao_top">返回<br> 顶部</a></span>
+        </div>
+        <div class="float_ad_body" onmousemove="dis_flt()" onmouseout="dis_flt_none()" id="id_flt2">
+            <span class="float_ad_tw"><a href="http://ask.vobao.com/" target="_blank"> <img src="/images/index_tw.jpg" width="25" height="24"></a></span>
+            <span class="float_ad_wx2"> <img src="/images/weixin.jpg" onmouseover="display_img()" onmouseout="display_none()"></span>
+            <span class="float_ad_jy"><a href="http://www.vobao.com/Help/service2.aspx" target="_blank"> <img src="/images/index_jy.jpg" width="20" height="18"></a></span>
+            <span class="float_ad_fx"> <a href="/share/"> <img src="/images/index_fx.jpg" width="24" height="23"></a></span>
+            <span class="float_ad_top"><a href="#top_href"> <img src="/images/index_top.jpg" width="25" height="24"></a></span>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function display_img() {
+            document.getElementById("weixin_1").style.display = "block";
+        }
+        function display_none() {
+            document.getElementById("weixin_1").style.display = "none";
+        }
+        function dis_flt() {
+            document.getElementById("id_flt").style.display = "block";
+            document.getElementById("id_flt2").style.display = "none";
+        }
+
+        function dis_flt_none() {
+            document.getElementById("id_flt").style.display = "none";
+            document.getElementById("id_flt2").style.display = "block";
+        }
+    </script>
+    <!-- WPA Button Begin
+ <script charset="utf-8" type="text/javascript" src="http://wpa.b.qq.com/cgi/wpa.php?key=XzkzODA0MTk3OV8xNDgzMDFfNDAwNjc3Njg4Nl8"></script>
+ WPA Button End -->
+    <style>
+        /* 固定底（顶）部菜单 */
+        .bnav
+        {
+            text-align: left;
+            height: 31px;
+            overflow: hidden;
+            width: 100%;
+            line-height: 30px;
+            background: #eeeeee;
+            margin: 0;
+            border-top: 1px solid #cccccc;
+            border-bottom: none;
+            z-index: 999;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            _position: absolute; /* for IE6 */
+            _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); /* for IE6 */
+            overflow: visible;
+        }
+        .close
+        {
+            position: absolute;
+            height: 30px;
+            width: 16px;
+            text-indent: -9999px;
+            padding-left: 10px;
+        }
+        .close a
+        {
+            background: url(http://www.vobao.com/images/b_close.gif) no-repeat center;
+            width: 16px;
+            display: block;
+        }
+        .bnav2
+        {
+            height: 30px;
+            line-height: 30px;
+            width: 1000px;
+            margin: 0 auto;
+            margin-bottom: 0;
+            background: #eeeeee;
+        }
+        .bnav .s1
+        {
+            color: #c47609;
+            float: left;
+        }
+        .bnav .s1 A
+        {
+            color: #666666;
+            text-decoration: none;
+        }
+        .bnav .s1 img
+        {
+            margin-right: 0px;
+        }
+        .bnav .s2
+        {
+            height: 30px;
+            line-height: 30px;
+            margin-left: 240px;
+            color: #888;
+            float: left;
+        }
+        .bnav .s2 span
+        {
+            padding-right: 10px;
+        }
+        .bnav .s2 a
+        {
+            margin: 0 3px;
+        }
+        .bnav3
+        {
+            height: 30px;
+            width: 16px;
+            line-height: 30px;
+            margin: 0 auto;
+            width: 100%;
+            border-bottom: none;
+            z-index: 999;
+            position: fixed;
+            bottom: 0;
+            left: 0; /* for IE6 */
+            _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); /* for IE6 */
+            overflow: visible;
+        }
+        .bnav3 a
+        {
+            background: url(http://www.vobao.com/images/b_open.gif) no-repeat center;
+            display: block;
+            height: 25px;
+            width: 16px;
+            float: right;
+            text-indent: -5000px;
+            margin-right: -20px;
+        }
+        .wei_child{
+            width:102px;
+            height:101px;
+            position:absolute;
+            display: none;
+            background:#f2f2f1;
+            padding:10px;
+            border:1px solid #ddd8d8;
+        }
+    </style>
+    <script type="text/javascript">
+        function showNav()
+        { $('.openClose').toggle(); }
+        function closeNav()
+        { $('.openClose').toggle(); }
+
+    </script>
+    <div class="bnav openClose">
+        <div class="bnav2">
+            <div class="s1">
+                <img style="margin-top: 4px;" src="http://www.vobao.com/images/jingxi.jpg">
+            </div>
+            <div id="MarqueeDiv7" class="s1" style="width: 280px; height: 30px; line-height: 30px;
+            overflow: hidden; margin-left: 10px;">
+                <table cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                    <tbody>
+                    <tr>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table cellspacing="0" cellpadding="0" style="border-collapse: collapse;">
+                                <tbody>
+                                <tr>
+                                    <td style="width: 280px; height: 30px; overflow: hidden;"> <a target="_blank" style="width: 280px; height: 30px; overflow: hidden;" href="http://news.vobao.com/detail.aspx?id=697480595125"> 买保险找沃保，享受专业服务 ，喜获"现金"大奖！</a> </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 280px; height: 30px; overflow: hidden;"> <a target="_blank" style="width: 280px; height: 30px; overflow: hidden;" href="http://news.vobao.com/detail.aspx?id=697480595125"> 买保险找沃保，享受专业服务 ，喜获"现金"大奖！</a> </td>
+                                </tr>
+                                </tbody>
+                            </table> </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="s1">
+            </div>
+            <div class="s2">
+                <img id="weixin" border="0" style="margin-top: 5px;" src="http://www.vobao.com/images/wx_tx01.jpg">
+                <div class="wei_child" id="wei_child">
+                    <img src="http://www.vobao.com/images/wx_ewm02.jpg" width="102" height="101" alt="">
+                </div>
+                <a title="沃保保险网新浪微博" target="_blank" href="http://weibo.com/vobao" rel="nofollow"> <img border="0" style="margin-top: 5px;" src="http://www.vobao.com/images/wb_sina.jpg"> </a>
+            </div>
+            <div class="s1">
+                <font style="color: #999999;">关注沃保保险网微博</font>
+            </div>
+            <span class="close"><a title="关闭" onclick="closeNav()" href="javascript:void(0)">关闭</a> </span>
+        </div>
+    </div>
+    <div class="bnav3 openClose" style="display: none;">
+        <div style="height: 30px; line-height: 30px; margin: 0 auto; width: 1000px;">
+            <a title="打开" onclick="showNav()" href="javascript:void(0)">打开</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#weixin").mouseover(function () {
+                $(".wei_child").css("top", -127 + "px");
+                $(".wei_child").show();
+            });
+            $("#weixin").mouseout(function () {
+                $(".wei_child").hide();
+            });
+        })
+    </script>
+    <script type="text/javascript">
+        /*alitab
+         author:alicn-wd-ym
+         这里是所有js实现,代码比较少,主要还是取巧,利用了classname的关系
+         */
+        var slideTabIndex = 1;
+        if (document.getElementById("slideBox")) {
+            var sTabList = document.getElementById("slideBox").getElementsByTagName("li");
+            for (var i = 0; i < sTabList.length; i++) {
+                var obj = sTabList[i].getElementsByTagName("a")[0];
+                sTabList[i].getElementsByTagName("a")[0].id = "slideBtn_" + (i + 1);
+                if (obj.addEventListener) {
+                    obj.addEventListener("mouseover", overSlide, false);
+                }
+                else if (obj.attachEvent) {
+                    obj.attachEvent("onmouseover", overSlide);
+                }
+            }
+        }
+        function overSlide(e) {
+            e = window.event || e;
+            var srcElement = e.srcElement || e.target;
+            var newTabIndex = srcElement.id.replace("slideBtn_", "");
+            var pos = srcElement.parentNode.className;
+            if (newTabIndex == "" || pos.indexOf("_h") != -1) return;
+            document.getElementById("slideBtn_" + slideTabIndex).parentNode.className = document.getElementById("slideBtn_" + slideTabIndex).parentNode.className.replace("_h", "");
+            document.getElementById("sc_" + slideTabIndex).className = "hide";
+            document.getElementById("sc_" + newTabIndex).className = "cont_" + pos;
+            srcElement.parentNode.className = pos + "_h";
+            slideTabIndex = newTabIndex;
+        }
+    </script>
+    <script language="javascript" type="text/javascript">
+
+        $(document).ready(function () {
+            $(".me-hyxx2").mouseover(function () {
+                $(this).css("border-color", "#efb68b");
+                $(this).children(".me-hyxx21").css("background", "#fcf9f0");
+            });
+
+            $(".me-hyxx2").mouseout(function () {
+                $(this).css("border-color", "#dddddd");
+                $(this).children(".me-hyxx21").css("background", "#f7f7f7");
+            });
+
+            $(".n_wei_r").mouseover(function () {
+                $(this).children("span").show();
+            });
+
+            $(".n_wei_r").mouseout(function () {
+                $(this).children("span").hide();
+            });
+
+            $(".n_wei_rNew").mouseover(function () {
+                $(this).next().show();
+            });
+
+            $(".n_wei_rNew").mouseout(function () {
+                $(this).next().hide();
+            });
+            $(".n_weichildNew").mouseover(function () {
+                $(this).show();
+            });
+            $(".n_weichildNew").mouseout(function () {
+                $(this).hide();
+            });
+        });
+
+
+        $(function () {
+            $("#class1").val("0");
+            $("#class2").val("0");
+            $("#class3").val("0");
+            /*2014-9-15找代理人优化，不显示热门公司
+             if ("0" == "0") {
+             $("#mechanism223").css("display", "block");
+             }
+             */
+            $("#QueryMemberByArea").bind("click", function () {
+                var url = "http://member.vobao.com/"
+                var areaId1 = $("select[name='areaid1']").val();
+                var areaId2 = $("select[name='areaid2']").val();
+                var keyWords = $("input[name='keyword']").val();
+                if (areaId1 == '0' && (keyWords == '' || keyWords == null)) return alert("请选择区域信息或者输入姓名查询");
+                if (areaId1 != '0') url += areaId1 + "/";
+                if (areaId2 != '0') url += areaId2 + "/";
+                if (keyWords != '' && keyWords != null) url += "?&keyword=" + keyWords;
+                window.location.href = url;
+            });
+            var urlNow = document.location.href;
+            if (urlNow.toLocaleLowerCase() != "http://member.vobao.com/") {
+                $("#YouQingLink").hide();
+            }
+        });
+        function morecom(typ, nowclassid3) {
+            if (typ == "firstmore") {
+                document.getElementById("gj_top13").style.display = "none";
+                document.getElementById("commore").innerHTML = "<a onclick=morecom('less','" + nowclassid3 + "'); href='javascript:void(0);'>收起↑</a>";
+                document.getElementById("commoreshow").style.display = "";
+                goajax("/Handlers/more_company_ajax.ashx?areaid1=0&areaid2=0&areaid3=0&nowclassid3=" + nowclassid3 + "&classid1=0&classid2=0&classid3=0", "commoreshow");
+            }
+            else if (typ == "more") {
+                document.getElementById("gj_top13").style.display = "none";
+                document.getElementById("commore").innerHTML = "<a onclick=morecom('less','" + nowclassid3 + "'); href='javascript:void(0);'>收起↑</a>";
+                document.getElementById("commoreshow").style.display = "";
+
+            }
+            else if (typ == "less") {
+                document.getElementById("gj_top13").style.display = "";
+                document.getElementById("commore").innerHTML = "<a onclick=morecom('more','" + nowclassid3 + "'); href='javascript:void(0);'>更多↓</a>";
+                document.getElementById("commoreshow").style.display = "none";
+
+            }
+        }
+
+        function morejg(typ) {
+            if (typ == "more") {
+                document.getElementById("moreSpan").style.display = "none";
+                document.getElementById("morejg").style.display = "";
+
+            }
+
+            else if (typ == "less") {
+                document.getElementById("moreSpan").style.display = "";
+                document.getElementById("morejg").style.display = "none";
+
+            }
+        }
+        function searchxz() {
+            var url = "http://xz.vobao.com/";
+            var class1 = $("#class1").val();
+            var class2 = $("#class2").val();
+            var class3 = $("#class3").val();
+            if (class1 == '0') return alert("请选择险种类别");
+            url += class1 + "/";
+            if (class3 != "0") url += class3 + "/";
+            else if (class2 != "0") url += class2 + "/";
+            window.location.href = url;
+        }
+
+        function getarea(id, name) {
+            // window.location.href = "index.aspx?areaid=" + id;
+
+            var postStr = "";
+            var gourl = "/Handlers/index_star.ashx?areaid=" + id;
+            $.ajax({
+                type: "POST",
+                contentType: "application/x-www-form-urlencoded",
+                url: gourl,
+                data: postStr,
+                //                error: function () {
+                //                    alert('您所请求的页面有异常，请刷新重试。');
+                //                },
+                success: function (msg) {
+                    if (msg == "") {
+                        $("#city_star").html("没有结果");
+                        $("#myarea").html(name);
+                    }
+                    else {
+                        $("#city_star").html(msg);
+                        $("#myarea").html(name);
+                    }
+                }
+            });
+            close_area();
+        }
+
+    </script>
+    <script language="javascript" type="text/javascript">
+        // 找代理人优化
+
+        $(function () {
+
+            if ('' != "") {
+                $("#keyNameOrArea").val('');
+            }
+
+            $("#btnSearchNameOrArea").bind("click", function () {
+                //                var url = "http://member.vobao.com/"
+
+                //                var keyWords = $("#keyNameOrArea").val();
+                //                if ((keyWords == '' || keyword == '省/市/区/姓名' || keyWords == null)) return alert("请选择区域信息或者输入姓名查询")
+                //                else {
+                //                    url += "?&keyword=" + keyWords;
+                //                }
+
+                //                window.location.href = url;
+                if ($("#keyNameOrArea").val() != "" && $("#keyNameOrArea").val() != "省/市/区/姓名") {
+                    SearchNameOrArea();
+                }
+                else {
+                    alert('请输入关键词！');
+                }
+
+            });
+
+            $.ajax({
+                url: "/Handlers/Member_GetAboutSearchInfo.ashx",
+                type: "POST",
+                cache: false,
+                dataType: "text",
+                data: { area1: '0', area2: '0', area3: '0', class1: '0', class2: '0', class3: '0' },
+                success: function (msg) {
+                    if (msg != "") {
+                        $("#lblAboutSearch").html(msg);
+                    }
+                    else {
+                        $("#divAboutSearch").hide();
+                    }
+                }
+            });
+
+            // 异步页面 判断session
+            $.ajax({
+                url: "/Handlers/Member_GetSessionInfo.ashx",
+                type: "POST",
+                cache: false,
+                dataType: "json",
+                success: function (msg) {
+
+                    if (msg.success) {
+                        alert(msg.msg);
+                        window.location.href = msg.url;
+                    }
+
+                }
+            });
+
+            // 加载页面要求先 收起机构
+            morejg('less');
+
+
+            ////  加载样式
+            OrderHrefCss('');
+
+        });
+
+        function SearchNameOrArea() {
+            var url = "http://member.vobao.com/"
+
+            var keyWords = $("#keyNameOrArea").val();
+            if ((!keyWords || keyWords == '省/市/区/姓名')) return alert("请选择区域信息或者输入姓名查询")
+            else {
+                url += "?&keyword=" + keyWords;
+            }
+
+            window.location.href = url;
+        }
+
+        function RegOnline() {
+            var _Sex = "2";
+            if ($("#sexMan").attr("checked")) {
+                _Sex = "1";
+            }
+            else if ($("#sexWoMan").attr("checked")) {
+                _Sex = "0";
+            }
+            var _Birth = $("#rborn").val();
+            var url = "http://toubao.vobao.com/";
+
+            url += "?FromTp=18&MonTp=10058&RegFrom=10058&sex=" + _Sex + "&birthday=" + _Birth;
+
+            window.location.href = url;
+
+        }
+
+        function OrderHrefCss(obj) {
+            switch (obj) {
+                case "orderrz":
+                    $("#hrefOrderrz").attr("style", " FONT-SIZE: 12px;COLOR: #cc0000;TEXT-DECORATION: underline;");
+                    break;
+                case "ordernx":
+                    $("#hrefOrdernx").attr("style", " FONT-SIZE: 12px;COLOR: #cc0000;TEXT-DECORATION: underline;");
+                    break;
+                case "orderhd":
+                    $("#hrefOrderhd").attr("style", " FONT-SIZE: 12px;COLOR: #cc0000;TEXT-DECORATION: underline;");
+                    break;
+                case "orderVip":
+                    $("#hrefOrderVip").attr("style", " FONT-SIZE: 12px;COLOR: #cc0000;TEXT-DECORATION: underline;");
+                    break;
+                default:
+                    // 默认   hrefDefault
+                    $("#hrefDefault").attr("style", " FONT-SIZE: 12px;COLOR: #cc0000;TEXT-DECORATION: underline;");
+                    break;
+            }
+
+        }
+
+    </script>
+</div>
+</body>
+</html>
