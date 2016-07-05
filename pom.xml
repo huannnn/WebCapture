@@ -69,9 +69,9 @@
             <version>1.9.2</version>
         </dependency>
         <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-templates</artifactId>
-            <version>2.4.7</version>
+            <groupId>com.typesafe.akka</groupId>
+            <artifactId>akka-actor_2.10</artifactId>
+            <version>2.3.15</version>
         </dependency>
     </dependencies>
 

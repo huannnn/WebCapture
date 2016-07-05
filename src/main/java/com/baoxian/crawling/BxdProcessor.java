@@ -59,7 +59,7 @@ public class BxdProcessor {
     }
 
     //获取链接地址
-    public static String getHref(Document doc, String id, String target) throws Exception {
+    public String getHref(Document doc, String id, String target) throws Exception {
         Element links = doc.getElementById(id);
         //若分页元素为空,返回0
         if (links == null) return "0";
@@ -100,7 +100,7 @@ public class BxdProcessor {
             logger.info(agent.getName() + "\n" + agent.getCompany() + "\n" + agent.getBusiness() + "\n"
                 + agent.getLocation() + "\n" + agent.getPhone() + "\n" + agent.getIntroduce());
             //保存数据库
-            agentRepository.insert(agent);
+            agentRepository.save(agent);
             logger.info(agent.getName() + " 保存成功!");
         }
     }
