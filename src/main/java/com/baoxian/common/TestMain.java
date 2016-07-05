@@ -1,4 +1,4 @@
-package com.baoxian;
+package com.baoxian.common;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -6,14 +6,12 @@ import org.jsoup.nodes.Document;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by Administrator on 2016/7/4.
- */
-public class Test {
+public class TestMain {
 
     public static void main(String[] args) throws Exception {
-        Document doc = Jsoup.connect("http://bxd28510.bxd365.com").get();
-        String str = doc.getElementsByTag("script").html();
+        Document doc = Jsoup.connect("http://bxd315869109.bxd365.com").get();
+        System.out.println(doc);
+        /*String str = doc.getElementsByTag("script").html();
         System.out.println(str);
         Pattern p = Pattern.compile("\\.tel'\\)\\.attr\\('href',\\s\"\\d+");
         Matcher m = p.matcher(str);
@@ -21,6 +19,6 @@ public class Test {
             String s = m.group(0);
             s=s.substring(21, s.length());
             System.out.println("===========>>>>>"+s);
-        }
+        }*/
     }
 }

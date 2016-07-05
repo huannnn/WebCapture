@@ -1,6 +1,8 @@
 package com.baoxian.domain;
 
 import javax.persistence.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @Entity
 @Table(name = "wc_agent")
@@ -18,7 +20,8 @@ public class Agent {
     private String business;        //业务范围
     @Column(length = 16777216)
     private String introduce;       //个人介绍
-    private String descUrl;         //网站页面
+    private String uuid;            //唯一标识
+    private String stamp;           //时间戳
 
     public long getId() {
         return id;
@@ -92,11 +95,20 @@ public class Agent {
         this.introduce = introduce;
     }
 
-    public String getDescUrl() {
-        return descUrl;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setDescUrl(String descUrl) {
-        this.descUrl = descUrl;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public String getStamp() {
+        return stamp;
+    }
+
+    public void setStamp(String stamp) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+        this.stamp = dateFormat.format(new Date());
     }
 }

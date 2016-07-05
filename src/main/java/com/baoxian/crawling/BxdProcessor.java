@@ -76,7 +76,7 @@ public class BxdProcessor {
         for (Element info : infos) {
             String descUrl = info.select("a[class=weizhan]").attr("href");
             logger.info("target: " + descUrl);
-            agent.setDescUrl(descUrl);
+            //agent.setDescUrl(descUrl);
             agent.setName(info.select("span[class=name]").text());
             agent.setCompany(info.select("span[class=firm-tit]").text());
             agent.setLocation(info.select("span[class=region]").text());
