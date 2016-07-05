@@ -11,15 +11,18 @@ public class Util {
 
     private static Logger logger = Logger.getLogger(Util.class);
 
+    //设置超时时间
+    private static final int timeout = 60000;
+
     //Jsoup下载页面
     public static Document connect(String url, String agent, int time) {
         try {
             time += 1;
             logger.info("下载链接页面中,HTTP请求第 " + time + " 次.");
             if (agent == null) {
-                return Jsoup.connect(url).get();
+                return Jsoup.connect(url).timeout(timeout).get();
             } else {
-                return Jsoup.connect(url).userAgent(agent).get();
+                return Jsoup.connect(url).userAgent(agent).timeout(timeout).get();
             }
         } catch (Exception e) {
             //限定重试5次

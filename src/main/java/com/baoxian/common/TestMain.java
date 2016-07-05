@@ -1,7 +1,10 @@
 package com.baoxian.common;
 
+import com.baoxian.crawling.BxdProcessor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,16 +12,7 @@ import java.util.regex.Pattern;
 public class TestMain {
 
     public static void main(String[] args) throws Exception {
-        Document doc = Jsoup.connect("http://bxd315869109.bxd365.com").get();
+        Document doc = Jsoup.connect("http://www.bxd365.com/agent/").timeout(30000).get();
         System.out.println(doc);
-        /*String str = doc.getElementsByTag("script").html();
-        System.out.println(str);
-        Pattern p = Pattern.compile("\\.tel'\\)\\.attr\\('href',\\s\"\\d+");
-        Matcher m = p.matcher(str);
-        if (m.find()) {
-            String s = m.group(0);
-            s=s.substring(21, s.length());
-            System.out.println("===========>>>>>"+s);
-        }*/
     }
 }

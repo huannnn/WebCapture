@@ -1,6 +1,7 @@
 package com.baoxian.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -20,7 +21,9 @@ public class Agent {
     private String business;        //业务范围
     @Column(length = 16777216)
     private String introduce;       //个人介绍
+    @NotNull
     private String uuid;            //唯一标识
+    @NotNull
     private String stamp;           //时间戳
 
     public long getId() {
@@ -108,7 +111,15 @@ public class Agent {
     }
 
     public void setStamp(String stamp) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
-        this.stamp = dateFormat.format(new Date());
+        if (stamp == null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+            this.stamp = dateFormat.format(new Date());
+        } else {
+            this.stamp = stamp;
+        }
+    }
+
+    public Agent() {
+        super();
     }
 }

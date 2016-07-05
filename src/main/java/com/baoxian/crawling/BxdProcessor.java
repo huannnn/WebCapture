@@ -9,6 +9,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,42 +26,46 @@ public class BxdProcessor {
     @Autowired
     private AgentRepository agentRepository;
 
+    //页面代理参数
+    private static final String agentParam = "51.0.2704.103 Safari";
+
     public static void main(String[] args) throws Exception {
        //process("http://www.bxd365.com/agent/", "广东", "广州");
     }
 
     public void process(String baseUrl, String province, String city) throws Exception {
-        Document doc = Util.connect(baseUrl, null, 0);
+        Document doc = Util.connect(baseUrl, agentParam, 0);
         //先选省份
         if (!doc.getElementById("prncode").select("a[selected]").text().equals(province)) {
-            doc = Util.connect(baseUrl + getHref(doc, "prncode", province), null, 0);
+            doc = Util.connect(baseUrl + getHref(doc, "prncode", province), agentParam, 0);
         }
         //再选城市
         if (city != null && !doc.getElementById("citycode").select("a[selected]").text().equals(city)) {
-            doc = Util.connect(baseUrl + getHref(doc, "citycode", city), null, 0);
+            doc = Util.connect(baseUrl + getHref(doc, "citycode", city), agentParam, 0);
         }
-        logger.info("当前目标抓取总条数: " + doc.getElementsByClass("result-count").text());
-
         //获取分页跳转链接
         String page = getHref(doc, "yw0", "末页");
-        int num = Integer.parseInt(page.substring(page.indexOf("=") + 1, page.length()));
+        int num = Integer.parseInt(page.substring(page.indexOf("/") + 1, page.length() - 5));
+        logger.info("共有 " + num + " 页结果列表分页！>>>>>>>>>>第 1 页<<<<<<<<<<");
         if (num == 0) {
             getDesc(doc);
         } else {
-            page = page.substring(0, page.indexOf("=") + 1);
+            page = page.substring(0, page.indexOf("/") + 1);
             for (int i = 1; i <= num; i++) {
                 if (i == 1) {
                     getDesc(doc);
                 } else {
-                    logger.info("page: " + baseUrl + page + i);
-                    getDesc(Util.connect(baseUrl + page + i, null, 0));
+                    String url = baseUrl + page + i + ".html";
+                    logger.info("page: " + url);
+                    logger.info(">>>>>>>>>>>>>>>>>>>>第 " + i + " 页<<<<<<<<<<<<<<<<<<<<");
+                    getDesc(Util.connect(url, agentParam, 0));
                 }
             }
         }
     }
 
     //获取链接地址
-    public String getHref(Document doc, String id, String target) throws Exception {
+    private String getHref(Document doc, String id, String target) throws Exception {
         Element links = doc.getElementById(id);
         //若分页元素为空,返回0
         if (links == null) return "0";
@@ -70,19 +76,22 @@ public class BxdProcessor {
     }
 
     //获取详情页信息
-    public void getDesc(Document document) throws Exception {
-        Agent agent = new Agent();
-        Elements infos = document.getElementsByClass("info");
+    private void getDesc(Document document) throws Exception {
+        Elements infos = document.select("[class=list clearfix");
         for (Element info : infos) {
-            String descUrl = info.select("a[class=weizhan]").attr("href");
+            String descUrl = info.select("a[class=hd-img]").attr("href");
             logger.info("target: " + descUrl);
             //agent.setDescUrl(descUrl);
-            agent.setName(info.select("span[class=name]").text());
-            agent.setCompany(info.select("span[class=firm-tit]").text());
-            agent.setLocation(info.select("span[class=region]").text());
-            agent.setBusiness(info.select("span[class=territory]").text());
+            Agent agent = new Agent();
+            agent.setName(info.select("a[class=name]").text());
+            String firm = info.select("span[class=firm]").text();
+            agent.setCompany(firm);
+            agent.setBusiness(info.select("li:has(span[class=be-good])").text().replaceAll("擅长领域：", ""));
+            String place = info.select("li[class=firm-txt]").text();
+            place = place.substring(firm.length() + 2, place.length());
+            agent.setLocation(place);
 
-            Document doc = Util.connect(descUrl, "51.0.2704.103 Safari", 0);
+            Document doc = Util.connect(descUrl, agentParam, 0);
             Element resume = doc.getElementsByClass("resume-info").first();
             if (resume != null) {
                 //自我介绍
@@ -100,6 +109,8 @@ public class BxdProcessor {
             logger.info(agent.getName() + "\n" + agent.getCompany() + "\n" + agent.getBusiness() + "\n"
                 + agent.getLocation() + "\n" + agent.getPhone() + "\n" + agent.getIntroduce());
             //保存数据库
+            agent.setStamp(null);
+            agent.setUuid(UUID.randomUUID().toString().replaceAll("-", ""));
             agentRepository.save(agent);
             logger.info(agent.getName() + " 保存成功!");
         }
