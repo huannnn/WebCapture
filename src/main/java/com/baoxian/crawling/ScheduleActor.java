@@ -9,12 +9,11 @@ public class ScheduleActor extends UntypedActor {
 
     private static Logger logger = Logger.getLogger(ScheduleActor.class);
 
-    private static int count = 0;
-
     @Override
     public void onReceive(Object message) throws Exception {
         if (message instanceof String) {
-            System.out.println("==========>" + message +"======>>>" + (++count));
+            logger.info("收到消息通知" + message);
+            getSender().tell("已收到！", getSelf());
         } else {
             unhandled(message);
         }

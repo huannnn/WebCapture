@@ -5,6 +5,11 @@ security:
     password: admin
     role: ADMIN
 
+#Server 服务端配置
+server:
+  port: 5000
+  session:
+    timeout: 1200
 
 #MySQL 数据库配置
 spring:
@@ -26,10 +31,3 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
-
-
-#Server 服务端配置
-server:
-  port: 5000
-  session:
-    timeout: 1200

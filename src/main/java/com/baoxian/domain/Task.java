@@ -1,15 +1,16 @@
 package com.baoxian.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "wc_task")
-public class Task {
+public class Task implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String link;        //待抓链接
+    private String link;        //目标链接
     private String uuid;        //唯一标识
     private Boolean achieve;    //完成状态
 
