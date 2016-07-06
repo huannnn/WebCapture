@@ -99,12 +99,18 @@ public class BxdProcessor {
             } else {
                 resume = doc.getElementsByClass("introduction").first();
                 if (resume != null) agent.setIntroduce(resume.select("p").text());
+                else agent.setIntroduce(doc.select("p[style=text-indent:2em;]").text());
             }
             //手机号码
             Document doc2 = Util.connect(descUrl, null, 0);
             Pattern p = Pattern.compile("\\.tel'\\)\\.attr\\('href',\\s\"\\d+");
             Matcher m = p.matcher(doc2.getElementsByTag("script").html());
-            if (m.find()) agent.setPhone(m.group(0).substring(21, m.group(0).length()));
+            if (m.find()) {
+                agent.setPhone(m.group(0).substring(21, m.group(0).length()));
+            } else {
+                String phone = doc2.select("a[class=kaiqia]").attr("href");
+                agent.setPhone(phone.substring(4, phone.length()));
+            }
 
             logger.info(agent.getName() + "\n" + agent.getCompany() + "\n" + agent.getBusiness() + "\n"
                 + agent.getLocation() + "\n" + agent.getPhone() + "\n" + agent.getIntroduce());

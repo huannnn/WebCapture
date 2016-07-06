@@ -12,7 +12,8 @@ import java.util.regex.Pattern;
 public class TestMain {
 
     public static void main(String[] args) throws Exception {
-        Document doc = Jsoup.connect("http://www.bxd365.com/agent/").timeout(30000).get();
-        System.out.println(doc);
+        Document doc = Jsoup.connect("http://bxd913455993.bxd365.com/").timeout(30000).userAgent("51.0.2704.103 Safari").get();
+
+        System.out.println(doc.select("p[style=text-indent:2em;]").text());
     }
 }
