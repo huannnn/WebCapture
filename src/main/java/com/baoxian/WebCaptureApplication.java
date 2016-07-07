@@ -22,7 +22,7 @@ public class WebCaptureApplication {
     @Autowired
     private SpringExtension springExtension;
 
-    @Bean
+    @Bean(destroyMethod = "shutdown")
     public ActorSystem actorSystem() {
         try {
             ActorSystem system = ActorSystem.create("wc-akka-system", ConfigFactory.load("config/akka"));

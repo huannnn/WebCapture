@@ -15,7 +15,8 @@ public class Agent {
     private String name;            //姓名
     private String sex;             //性别
     private String phone;           //电话
-    private String wechat;          //微信号
+    private String wx;              //微信号
+    private String qq;              //QQ号
     private String company;         //所属公司
     private String location;        //执业区域
     private String business;        //业务范围
@@ -58,12 +59,20 @@ public class Agent {
         this.phone = phone;
     }
 
-    public String getWechat() {
-        return wechat;
+    public String getWx() {
+        return wx;
     }
 
-    public void setWechat(String wechat) {
-        this.wechat = wechat;
+    public void setWx(String wx) {
+        this.wx = wx;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
     }
 
     public String getCompany() {

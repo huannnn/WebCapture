@@ -26,22 +26,23 @@ public class BxdProcessor {
     @Autowired
     private AgentRepository agentRepository;
 
-    //页面代理参数
-    private static final String agentParam = "51.0.2704.103 Safari";
-
     public static void main(String[] args) throws Exception {
        //process("http://www.bxd365.com/agent/", "广东", "广州");
     }
 
     public void process(String baseUrl, String province, String city) throws Exception {
-        Document doc = Util.connect(baseUrl, agentParam, 0);
+        Document doc = Util.get(baseUrl, 1, 0);
+
+        Elements areas = doc.getElementsByClass("model-select-text");
         //先选省份
-        if (!doc.getElementById("prncode").select("a[selected]").text().equals(province)) {
-            doc = Util.connect(baseUrl + getHref(doc, "prncode", province), agentParam, 0);
+        String prv = areas.first().text();
+        if (!prv.equals(province) || (prv.equals(province) && city == null)) {
+            doc = Util.get(baseUrl + getHref(doc, "prncode", province), 1, 0);
         }
         //再选城市
-        if (city != null && !doc.getElementById("citycode").select("a[selected]").text().equals(city)) {
-            doc = Util.connect(baseUrl + getHref(doc, "citycode", city), agentParam, 0);
+        String ct = areas.last().text();
+        if (city != null && !ct.equals(city)) {
+            doc = Util.get(baseUrl + getHref(doc, "citycode", city), 1, 0);
         }
         //获取分页跳转链接
         String page = getHref(doc, "yw0", "末页");
@@ -58,7 +59,7 @@ public class BxdProcessor {
                     String url = baseUrl + page + i + ".html";
                     logger.info("page: " + url);
                     logger.info(">>>>>>>>>>>>>>>>>>>>第 " + i + " 页<<<<<<<<<<<<<<<<<<<<");
-                    getDesc(Util.connect(url, agentParam, 0));
+                    getDesc(Util.get(url, 1, 0));
                 }
             }
         }
@@ -91,7 +92,7 @@ public class BxdProcessor {
             place = place.substring(firm.length() + 2, place.length());
             agent.setLocation(place);
 
-            Document doc = Util.connect(descUrl, agentParam, 0);
+            Document doc = Util.get(descUrl, 1, 0);
             Element resume = doc.getElementsByClass("resume-info").first();
             if (resume != null) {
                 //自我介绍
@@ -102,14 +103,23 @@ public class BxdProcessor {
                 else agent.setIntroduce(doc.select("p[style=text-indent:2em;]").text());
             }
             //手机号码
-            Document doc2 = Util.connect(descUrl, null, 0);
+            Document doc2 = Util.get(descUrl, 2, 0);
             Pattern p = Pattern.compile("\\.tel'\\)\\.attr\\('href',\\s\"\\d+");
             Matcher m = p.matcher(doc2.getElementsByTag("script").html());
             if (m.find()) {
                 agent.setPhone(m.group(0).substring(21, m.group(0).length()));
             } else {
-                String phone = doc2.select("a[class=kaiqia]").attr("href");
-                agent.setPhone(phone.substring(4, phone.length()));
+                agent.setQq(doc2.select("[class=qq-tk tk-gm] > span").text());
+                agent.setWx(doc2.select("[class=wx-tk tk-gm] > span").text());
+                int a = 2;
+                String phone = "";
+                while (phone.length() != 11 && a <= 6) {
+                    if (a > 2) doc2 = Util.get(descUrl, a, 0);
+                    phone = doc2.select("a[class=iconfont icon-dianhua]").attr("href");
+                    phone = phone.substring(4, phone.length());
+                    a += 1;
+                }
+                agent.setPhone(phone);
             }
 
             logger.info(agent.getName() + "\n" + agent.getCompany() + "\n" + agent.getBusiness() + "\n"

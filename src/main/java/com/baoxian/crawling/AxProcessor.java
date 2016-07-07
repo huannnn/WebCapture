@@ -19,20 +19,20 @@ public class AxProcessor {
     }
 
     public static void process(String baseUrl, String province, String city) throws Exception {
-        Document doc = Util.connect(baseUrl, null, 0);
+        Document doc = Util.get(baseUrl, 1, 0);
         //先选省份
         Element proEl = doc.getElementsByClass("brand_list").first();
         if (!proEl.select("a[class=on]").text().equals(province)) {
             String href = proEl.select("a:contains(" + province + ")").attr("href");
             href = href.substring(7, href.length());
-            doc = Util.connect(baseUrl + href, null, 0);
+            doc = Util.get(baseUrl + href, 1, 0);
         }
         //再选城市
         //Document doc= Jsoup.parse(Util.read("F:\\workspace\\WebCapture\\src\\main\\resources\\public\\ax.html"));
         Element cityEl = doc.getElementsByClass("brand_list").first();
         if (city != null && !cityEl.select("a[class=on]").text().equals(city)) {
             String href = cityEl.select("a:contains(" + city + ")").attr("href");
-            doc = Util.connect(baseUrl + href, null, 0);
+            doc = Util.get(baseUrl + href, 1, 0);
         }
 
 

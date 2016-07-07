@@ -13,11 +13,7 @@ import java.util.regex.Pattern;
 public class TestMain {
 
     public static void main(String[] args) throws Exception {
-        /*Document doc = Jsoup.connect("http://bxd913455993.bxd365.com/").timeout(30000).userAgent("51.0.2704.103 Safari").get();
-
-        System.out.println(doc.select("p[style=text-indent:2em;]").text());*/
-
-
-        //Akka Future Test
+        Document doc = Jsoup.connect("http://bxd345784042.bxd365.com/").userAgent("Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile").get();
+        System.out.println(doc);
     }
 }
