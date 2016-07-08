@@ -3,6 +3,7 @@ package com.baoxian.config;
 import akka.actor.ActorSelection;
 import akka.actor.ActorSystem;
 import com.baoxian.crawling.BxdProcessor;
+import com.baoxian.crawling.DajiabaoProcessor;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -32,12 +33,16 @@ public class StartupRunner implements CommandLineRunner {
     @Autowired
     private BxdProcessor bxdProcessor;
 
+    @Autowired
+    private DajiabaoProcessor dajiabaoProcessor;
+
     @Override
     public void run(String... strings) throws Exception {
         try {
             logger.info(">>>>>>>>>>开始执行网页代理人抓取任务<<<<<<<<<<");
 
-            bxdProcessor.process("http://www.bxd365.com/agent/", "广东", null);
+            //bxdProcessor.process("http://www.bxd365.com/agent/", "广东", null);
+            dajiabaoProcessor.process("http://www.dajiabao.com/guwen", "广东", null);
             //ActorSelection schedule = actorSystem.actorSelection("/user/schedule-actor");
             //schedule.tell("123", null);
             /*for (String seed : seeds) {
