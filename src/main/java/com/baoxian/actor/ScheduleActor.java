@@ -5,12 +5,14 @@ import akka.dispatch.Futures;
 import akka.dispatch.OnFailure;
 import akka.dispatch.OnSuccess;
 import org.apache.log4j.Logger;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import scala.concurrent.Future;
 import java.util.Random;
 import java.util.concurrent.Callable;
 
 @Component
+@Scope("prototype")
 public class ScheduleActor extends UntypedActor {
 
     private static Logger logger = Logger.getLogger(ScheduleActor.class);
