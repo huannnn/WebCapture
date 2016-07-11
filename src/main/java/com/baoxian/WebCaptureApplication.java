@@ -2,7 +2,7 @@ package com.baoxian;
 
 import akka.actor.ActorSystem;
 import com.baoxian.config.SpringExtension;
-import com.baoxian.crawling.ScheduleActor;
+import com.baoxian.actor.ScheduleActor;
 import com.typesafe.config.ConfigFactory;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

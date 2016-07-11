@@ -1,7 +1,7 @@
 package com.baoxian.crawling;
 
+import com.baoxian.common.Util;
 import org.apache.log4j.Logger;
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 /**
@@ -12,14 +12,11 @@ public class XrkProcessor {
 
     private static Logger logger = Logger.getLogger(XrkProcessor.class);
 
-    private static String baseUrl = "http://a.xiangrikui.com/";
-
     public static void main(String[] args) throws Exception {
-        process();
+        process("http://a.xiangrikui.com", "广东", null);
     }
 
-    public static void process() throws Exception {
-        Document doc = Jsoup.connect(baseUrl).get();
-        System.out.println(doc);
+    public static void process(String baseUrl, String province, String city) throws Exception {
+
     }
 }

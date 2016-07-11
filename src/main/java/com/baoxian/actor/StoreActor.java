@@ -1,4 +1,4 @@
-package com.baoxian.crawling;
+package com.baoxian.actor;
 
 import akka.actor.UntypedActor;
 
