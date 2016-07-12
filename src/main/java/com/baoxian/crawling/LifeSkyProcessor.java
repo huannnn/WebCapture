@@ -56,6 +56,7 @@ public class LifeSkyProcessor {
             for (; i <= num; i++) {
                 if (i == 1) {
                     getDesc(doc);
+                    break;
                 } else {
                     logger.info(">>>>>>>>>>>>>>>>>>>>第 " + i + " 页<<<<<<<<<<<<<<<<<<<<");
                     String url = baseUrl + "?page=" + i;
@@ -68,6 +69,17 @@ public class LifeSkyProcessor {
     private void getDesc(Document document) throws Exception {
         Element el = document.select("td[class=f]").first();
         Elements fonts = el.select("font[size=-1]");
+        //获取QQ号
+        fonts.before("@@");
+        String[] sp = el.html().split("@@");
+        String[] qqArr = new String[sp.length];
+        for (int i =0; i < sp.length; i++) {
+            Element tmp = Jsoup.parse(sp[i]);
+            String alt = tmp.select("img[align=absmiddle][alt=QQ联系]").attr("src");
+            if (alt != null && !"".equals(alt)) {
+                qqArr[i] = alt.substring(alt.indexOf("1:") + 2, alt.indexOf(":7"));
+            }
+        }
         int index = 1;
         for (Element font : fonts) {
             logger.info("抓取该页第 " + index + " 条...");
@@ -79,13 +91,19 @@ public class LifeSkyProcessor {
             agent.setSex(strs[1]);
             agent.setLocation(strs[4]);
             agent.setCompany(strs[5]);
-            String phone = strs[6].substring(strs[6].indexOf("MP:"), strs[6].indexOf("，Email"));
+            String phone = "";
+            if (strs[6].contains("MP:") && strs[6].contains("，Email")) {
+                phone = strs[6].substring(strs[6].indexOf("MP:") + 3, strs[6].indexOf("，Email"));
+            } else if (strs[6].contains("Tel:") && strs[6].contains("，Email")) {
+                phone = strs[6].substring(strs[6].indexOf("Tel:") + 4, strs[6].indexOf("，Email"));
+            }
             agent.setPhone(phone);
+            agent.setQq(qqArr[index - 1]);
             agent.setStamp(null);
             agent.setUuid(UUID.randomUUID().toString());
 
             logger.info(agent.getName() + "\n" + agent.getSex() + "\n" + agent.getCompany() + "\n"
-                    + agent.getLocation() + "\n" + agent.getPhone() + "\n");
+                    + agent.getLocation() + "\n" + agent.getPhone() + "\n" + agent.getQq());
             agentRepository.save(agent);
         }
     }
