@@ -5,6 +5,7 @@ import akka.actor.ActorSystem;
 import com.baoxian.crawling.BxdProcessor;
 import com.baoxian.crawling.DajiabaoProcessor;
 import com.baoxian.crawling.LifeSkyProcessor;
+import com.baoxian.crawling.XrkProcessor;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -40,6 +41,9 @@ public class StartupRunner implements CommandLineRunner {
     @Autowired
     private LifeSkyProcessor lifeSkyProcessor;
 
+    @Autowired
+    private XrkProcessor xrkProcessor;
+
     @Override
     public void run(String... strings) throws Exception {
         try {
@@ -47,9 +51,10 @@ public class StartupRunner implements CommandLineRunner {
 
             //bxdProcessor.process("http://www.bxd365.com/agent/", "广东", null);
             //dajiabaoProcessor.process("http://www.dajiabao.com/guwen", "广东", null);
-            lifeSkyProcessor.process("http://www.baoxian360.net/index.asp", "广东", null);
-            //ActorSelection schedule = actorSystem.actorSelection("/user/schedule-actor");
-            //schedule.tell("123", null);
+            //lifeSkyProcessor.process("http://www.baoxian360.net/index.asp", "广东", null);
+            xrkProcessor.process("http://a.xiangrikui.com", "广东", null);
+            ActorSelection schedule = actorSystem.actorSelection("/user/schedule-actor");
+            schedule.tell("123", null);
             /*for (String seed : seeds) {
                 System.out.println(seed);
             }*/

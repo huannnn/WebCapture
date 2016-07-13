@@ -10,6 +10,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.UUID;
 
@@ -17,6 +18,7 @@ import java.util.UUID;
  * 保险中间站 http://www.life-sky.net
  * Created by huan on 16/7/3.
  */
+@Component
 public class LifeSkyProcessor {
 
     private static Logger logger = Logger.getLogger(LifeSkyProcessor.class);
@@ -56,7 +58,6 @@ public class LifeSkyProcessor {
             for (; i <= num; i++) {
                 if (i == 1) {
                     getDesc(doc);
-                    break;
                 } else {
                     logger.info(">>>>>>>>>>>>>>>>>>>>第 " + i + " 页<<<<<<<<<<<<<<<<<<<<");
                     String url = baseUrl + "?page=" + i;
@@ -77,7 +78,7 @@ public class LifeSkyProcessor {
             Element tmp = Jsoup.parse(sp[i]);
             String alt = tmp.select("img[align=absmiddle][alt=QQ联系]").attr("src");
             if (alt != null && !"".equals(alt)) {
-                qqArr[i] = alt.substring(alt.indexOf("1:") + 2, alt.indexOf(":7"));
+                qqArr[i] = alt.substring(alt.indexOf("1:") + 2, alt.length() - 2);
             }
         }
         int index = 1;
@@ -105,6 +106,7 @@ public class LifeSkyProcessor {
             logger.info(agent.getName() + "\n" + agent.getSex() + "\n" + agent.getCompany() + "\n"
                     + agent.getLocation() + "\n" + agent.getPhone() + "\n" + agent.getQq());
             agentRepository.save(agent);
+            index += 1;
         }
     }
 }
